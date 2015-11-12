@@ -1,51 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-
-<VBox maxHeight="380.0" maxWidth="270.0" minHeight="-Infinity" minWidth="270.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFidelTestController">
-   <children>
-      <AnchorPane maxHeight="380.0" maxWidth="270.0" minWidth="270.0" onMouseClicked="#mouseDragged" onMouseDragged="#mouseDragged" onMousePressed="#mouseDragged" prefHeight="344.0" prefWidth="270.0">
-         <children>
-            <ImageView fx:id="backgoundAreaView" blendMode="SRC_ATOP" fitHeight="380.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
-               <image>
-                  <Image url="@res/Backgroundsquare.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="selectionBox" blendMode="SCREEN" fitHeight="40.0" fitWidth="40.0" layoutX="115.0" layoutY="155.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@res/SimpleSelection.png" />
-               </image>
-            </ImageView>
-            <Text fx:id="currentSongLabel" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently playing: None" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="270.00000383821316" />
-         </children>
-      </AnchorPane>
-      <HBox maxHeight="110.0" maxWidth="240.0" minWidth="270.0" prefHeight="110.0" prefWidth="240.0" spacing="10.0">
-         <children>
-            <Button fx:id="backButton" alignment="CENTER" maxHeight="70.0" maxWidth="70.0" minHeight="70.0" minWidth="70.0" mnemonicParsing="false" onMousePressed="#backButtonClicked" onMouseReleased="#backButtonReleased" />
-            <Button fx:id="playButton" alignment="CENTER" maxHeight="70.0" maxWidth="70.0" minHeight="70.0" minWidth="70.0" mnemonicParsing="false" onMousePressed="#playButtonPressed" onMouseReleased="#playClicked" />
-            <Button fx:id="skipButton" alignment="CENTER" maxHeight="70.0" maxWidth="70.0" minHeight="70.0" minWidth="70.0" mnemonicParsing="false" onMousePressed="#skipButtonClicked" onMouseReleased="#skipButtonReleased">
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding></Button>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
+<?import javafx.scene.text.Text?>
+<VBox maxHeight="380.0" maxWidth="270.0" minHeight="-Infinity" minWidth="270.0" xmlns="http://javafx.com/javafx/8.0.40"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="HighFidelTestController">
+   <AnchorPane maxHeight="380.0" maxWidth="270.0" minWidth="270.0" onMouseClicked="#mouseDragged"
+               onMouseDragged="#mouseDragged" onMousePressed="#mouseDragged" prefHeight="344.0" prefWidth="270.0">
+      <ImageView fx:id="backgoundAreaView" blendMode="SRC_ATOP" fitHeight="380.0" fitWidth="250.0"
+                 pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="10.0"
+                 AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <Image url="@res/BackgroundSquare.png"/>
+      </ImageView>
+      <ImageView fx:id="selectionBox" blendMode="SCREEN" fitHeight="40.0" fitWidth="40.0" layoutX="115.0"
+                 layoutY="155.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@res/SimpleSelection.png"/>
+      </ImageView>
+      <Text fx:id="currentSongLabel" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0"
+            text="Currently playing: None" textAlignment="CENTER" textOrigin="CENTER"
+            wrappingWidth="270.00000383821316"/>
+   </AnchorPane>
+   <HBox maxHeight="110.0" maxWidth="240.0" minWidth="270.0" prefHeight="110.0" prefWidth="240.0" spacing="10.0">
+      <opaqueInsets>
+         <Insets/>
+      </opaqueInsets>
+      <VBox.margin>
+         <Insets/>
+      </VBox.margin>
+      <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+      </padding>
+      <Button fx:id="backButton" alignment="CENTER" maxHeight="70.0" maxWidth="70.0" minHeight="70.0" minWidth="70.0"
+              mnemonicParsing="false" onMousePressed="#backButtonClicked" onMouseReleased="#backButtonReleased"/>
+      <Button fx:id="playButton" alignment="CENTER" maxHeight="70.0" maxWidth="70.0" minHeight="70.0" minWidth="70.0"
+              mnemonicParsing="false" onMousePressed="#playButtonPressed" onMouseReleased="#playClicked"/>
+      <Button fx:id="skipButton" alignment="CENTER" maxHeight="70.0" maxWidth="70.0" minHeight="70.0" minWidth="70.0"
+              mnemonicParsing="false" onMousePressed="#skipButtonClicked" onMouseReleased="#skipButtonReleased">
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
          </padding>
-      </HBox>
-   </children>
+      </Button>
+   </HBox>
 </VBox>

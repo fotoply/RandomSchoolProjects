@@ -24,7 +24,7 @@ public class HighFidelTestController {
     Image imagePauseFilled= new Image(getClass().getResourceAsStream("res/Pause button (Filled).png"));
     Image imageSkipFilled = new Image(getClass().getResourceAsStream("res/Skip button (Filled).png"));
     Image imageBackFilled = new Image(getClass().getResourceAsStream("res/Back button (Filled).png"));
-    Image imageBackground = new Image(getClass().getResourceAsStream("res/Backgroundsquare.png"));
+    Image imageBackground = new Image(getClass().getResourceAsStream("res/BackgroundSquare.png"));
     Stage primaryStage;
 
     boolean playing = false;
@@ -73,7 +73,7 @@ public class HighFidelTestController {
     }
 
     public String getMoodAndSong() {
-        String result = "none";
+        String result;
         ArrayList<Double> mood = getMoodNumbers();
 
 
