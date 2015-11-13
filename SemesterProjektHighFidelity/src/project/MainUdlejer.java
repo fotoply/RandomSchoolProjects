@@ -39,17 +39,20 @@ public class MainUdlejer extends Application {
     private void loadMenus() throws IOException {
         FXMLLoader loader = new FXMLLoader();
 
+        //noinspection SpellCheckingInspection
         loader.setLocation(getClass().getResource("view/udlejer/LeftMenu.fxml"));
         rootPane.getRootPane().setLeft(loader.load());
         leftMenu = loader.getController();
 
         loader = new FXMLLoader();
+        //noinspection SpellCheckingInspection
         loader.setLocation(getClass().getResource("view/udlejer/UpperMenu.fxml"));
         rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
     }
 
     private void loadRoot() throws IOException {
+        //noinspection SpellCheckingInspection
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/udlejer/RootPane.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         rootPane = loader.getController();
