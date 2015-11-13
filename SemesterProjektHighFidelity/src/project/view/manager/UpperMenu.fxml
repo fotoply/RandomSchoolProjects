@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 
-<?import javafx.scene.layout.HBox?>
-<HBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-      minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40"/>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40">
+    <children>
+        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../res/myAppartment_logo.png"/>
+            </image>
+        </ImageView>
+        <HBox fx:id="menuBox" alignment="CENTER" layoutX="101.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="120.0" minWidth="480.0" prefHeight="120.0" prefWidth="499.0" AnchorPane.bottomAnchor="0.0"
+              AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Text fx:id="mapText" strokeType="OUTSIDE" strokeWidth="0.0" text="Kort" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Separator orientation="VERTICAL" prefHeight="200.0">
+                    <padding>
+                        <Insets left="20.0" right="20.0"/>
+                    </padding>
+                </Separator>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Oversigt" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Separator orientation="VERTICAL" prefHeight="200.0">
+                    <padding>
+                        <Insets left="20.0" right="20.0"/>
+                    </padding>
+                </Separator>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Indstillinger" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Separator orientation="VERTICAL" prefHeight="200.0">
+                    <padding>
+                        <Insets left="20.0" right="20.0"/>
+                    </padding>
+                </Separator>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log ud" textAlignment="CENTER">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
