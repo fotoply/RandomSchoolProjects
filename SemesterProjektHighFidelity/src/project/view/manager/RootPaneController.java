@@ -1,4 +1,4 @@
-package project.view.udlejer;
+package project.view.manager;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;

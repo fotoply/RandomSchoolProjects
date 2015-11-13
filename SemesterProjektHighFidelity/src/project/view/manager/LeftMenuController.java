@@ -1,4 +1,4 @@
-package project.view.udlejer;
+package project.view.manager;
 
 /**
  * Created 11/13/15

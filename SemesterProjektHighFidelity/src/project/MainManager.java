@@ -7,15 +7,14 @@ package project;/**
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.chart.ScatterChart;
 import javafx.stage.Stage;
-import project.view.udlejer.LeftMenuController;
-import project.view.udlejer.RootPaneController;
-import project.view.udlejer.UpperMenuController;
+import project.view.manager.LeftMenuController;
+import project.view.manager.RootPaneController;
+import project.view.manager.UpperMenuController;
 
 import java.io.IOException;
 
-public class MainUdlejer extends Application {
+public class MainManager extends Application {
 
     private Stage primaryStage;
     private RootPaneController rootPane;
@@ -39,21 +38,18 @@ public class MainUdlejer extends Application {
     private void loadMenus() throws IOException {
         FXMLLoader loader = new FXMLLoader();
 
-        //noinspection SpellCheckingInspection
-        loader.setLocation(getClass().getResource("view/udlejer/LeftMenu.fxml"));
+        loader.setLocation(getClass().getResource("view/manager/LeftMenu.fxml"));
         rootPane.getRootPane().setLeft(loader.load());
         leftMenu = loader.getController();
 
         loader = new FXMLLoader();
-        //noinspection SpellCheckingInspection
-        loader.setLocation(getClass().getResource("view/udlejer/UpperMenu.fxml"));
+        loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml"));
         rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
     }
 
     private void loadRoot() throws IOException {
-        //noinspection SpellCheckingInspection
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/udlejer/RootPane.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/RootPane.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         rootPane = loader.getController();
 
