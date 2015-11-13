@@ -43,8 +43,9 @@ public class MainUdlejer extends Application {
         rootPane.getRootPane().setLeft(loader.load());
         leftMenu = loader.getController();
 
+        loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/udlejer/UpperMenu.fxml"));
-        rootPane.getRootPane().setCenter(loader.load());
+        rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
     }
 
