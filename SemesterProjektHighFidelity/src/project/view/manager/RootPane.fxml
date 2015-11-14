@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity"
             minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="project.view.manager.RootPaneController"/>
+            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="project.view.manager.RootPaneController">
+    <center>
+        <Text lineSpacing="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velkommen til myAppartment"
+              textAlignment="CENTER" wrappingWidth="311.0" BorderPane.alignment="CENTER">
+            <font>
+                <Font size="36.0"/>
+            </font>
+        </Text>
+    </center>
+</BorderPane>
