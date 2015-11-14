@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
+            fx:controller="project.view.manager.UpperMenuController">
     <children>
         <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../res/myAppartment_logo.png"/>
             </image>
         </ImageView>
-        <HBox fx:id="menuBox" alignment="CENTER" layoutX="101.0" maxHeight="-Infinity" maxWidth="-Infinity"
-              minHeight="120.0" minWidth="480.0" prefHeight="120.0" prefWidth="499.0" AnchorPane.bottomAnchor="0.0"
+        <HBox alignment="CENTER" layoutX="101.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="120.0"
+              minWidth="480.0" prefHeight="120.0" prefWidth="499.0" spacing="14.0" AnchorPane.bottomAnchor="0.0"
               AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Text fx:id="mapText" strokeType="OUTSIDE" strokeWidth="0.0" text="Kort" textAlignment="CENTER">
+                <Text fx:id="mapText" onMouseClicked="#mapClicked" strokeType="OUTSIDE" strokeWidth="0.0" style=""
+                      text="Kort" textAlignment="CENTER" wrappingWidth="63.662109375">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator orientation="VERTICAL" prefHeight="200.0">
-                    <padding>
-                        <Insets left="20.0" right="20.0"/>
-                    </padding>
-                </Separator>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Oversigt" textAlignment="CENTER">
+                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Text fx:id="overviewText" onMouseClicked="#overviewClicked" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Oversigt" textAlignment="CENTER" wrappingWidth="97.619140625">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator orientation="VERTICAL" prefHeight="200.0">
-                    <padding>
-                        <Insets left="20.0" right="20.0"/>
-                    </padding>
-                </Separator>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Indstillinger" textAlignment="CENTER">
+                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Text fx:id="settingsText" onMouseClicked="#settingsClicked" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Indstillinger" textAlignment="CENTER" wrappingWidth="142.65625">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator orientation="VERTICAL" prefHeight="200.0">
-                    <padding>
-                        <Insets left="20.0" right="20.0"/>
-                    </padding>
-                </Separator>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Log ud" textAlignment="CENTER">
+                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Text fx:id="logOffText" onMouseClicked="#logOutClicked" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Log ud" textAlignment="CENTER" wrappingWidth="80.802734375">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
             </children>
+            <padding>
+                <Insets left="20.0" right="20.0"/>
+            </padding>
         </HBox>
     </children>
 </AnchorPane>

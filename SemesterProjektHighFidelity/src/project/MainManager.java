@@ -52,6 +52,5 @@ public class MainManager extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/RootPane.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         rootPane = loader.getController();
-
     }
 }
