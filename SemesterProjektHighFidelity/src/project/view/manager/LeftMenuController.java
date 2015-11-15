@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
 
 /**
  * Created 11/13/15
@@ -28,9 +29,9 @@ public class LeftMenuController {
         notificationsButton.setGraphic(notificationImage);
         messagesButton.setGraphic(messageImage);
 
-        /*allPlacesButton.setBackground(Background.EMPTY);
+        allPlacesButton.setBackground(Background.EMPTY);
         notificationsButton.setBackground(Background.EMPTY);
-        messagesButton.setBackground(Background.EMPTY);*/
+        messagesButton.setBackground(Background.EMPTY);
 
         allPlacesButton.setPadding(Insets.EMPTY);
         notificationsButton.setPadding(Insets.EMPTY);

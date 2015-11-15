@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import project.view.manager.LeftMenuController;
 import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
@@ -52,5 +53,7 @@ public class MainManager extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/RootPane.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         rootPane = loader.getController();
+        primaryStage.setResizable(false); // Set to true if resizing is needed for testing
+        primaryStage.initStyle(StageStyle.UNDECORATED); // Also set this to any other style to allow resizing
     }
 }
