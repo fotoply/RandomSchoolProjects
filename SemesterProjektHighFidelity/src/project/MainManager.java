@@ -47,6 +47,7 @@ public class MainManager extends Application {
         loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml"));
         rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
+        upperMenu.setPrimaryStage(primaryStage);
     }
 
     private void loadRoot() throws IOException {

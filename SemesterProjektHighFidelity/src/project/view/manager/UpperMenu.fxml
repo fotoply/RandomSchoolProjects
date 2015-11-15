@@ -27,24 +27,27 @@
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                           orientation="VERTICAL" prefHeight="40.0" prefWidth="1.0"/>
+                <Separator blendMode="SRC_ATOP" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity"
+                           minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false"
+                           prefHeight="40.0" prefWidth="1.0" HBox.hgrow="NEVER"/>
                 <Text fx:id="overviewText" onMouseClicked="#overviewClicked" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Oversigt" textAlignment="CENTER" wrappingWidth="97.619140625">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                           orientation="VERTICAL" prefHeight="40.0" prefWidth="1.0"/>
+                <Separator blendMode="SRC_ATOP" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity"
+                           minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false"
+                           prefHeight="40.0" prefWidth="1.0" HBox.hgrow="NEVER"/>
                 <Text fx:id="settingsText" onMouseClicked="#settingsClicked" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Indstillinger" textAlignment="CENTER" wrappingWidth="142.65625">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                           orientation="VERTICAL" prefHeight="40.0" prefWidth="1.0"/>
+                <Separator blendMode="SRC_ATOP" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity"
+                           minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" pickOnBounds="false"
+                           prefHeight="40.0" prefWidth="1.0" HBox.hgrow="NEVER"/>
                 <Text fx:id="logOffText" onMouseClicked="#logOutClicked" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Log ud" textAlignment="CENTER" wrappingWidth="80.802734375">
                     <font>

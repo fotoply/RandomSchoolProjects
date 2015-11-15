@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ public class UpperMenuController {
 
     @FXML
     private ImageView iconImage;
+
+    private Stage primaryStage;
 
     @FXML
     void initialize() {
@@ -66,6 +69,10 @@ public class UpperMenuController {
     @FXML
     public void logOutClicked() {
         textClicked(logOffText);
+        primaryStage.close();
     }
 
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 }
