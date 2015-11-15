@@ -15,6 +15,10 @@ public class RootPaneController {
 
     @FXML
     public void initialize() {
+        /*Image bckImage = new Image(getClass().getResourceAsStream("/project/res/background.png"));
+        BackgroundImage bck = new BackgroundImage(bckImage,null,null,null, BackgroundSize);
+
+        rootPane.setBackground(new Background(bck));*/
 
     }
 

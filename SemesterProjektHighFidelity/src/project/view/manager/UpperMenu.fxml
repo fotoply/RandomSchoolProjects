@@ -6,17 +6,20 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
-            fx:controller="project.view.manager.UpperMenuController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="90.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="project.view.manager.UpperMenuController">
     <children>
-        <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="iconImage" cache="true" cacheHint="QUALITY" fitHeight="110.0" fitWidth="110.0"
+                   pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="30.0"
+                   AnchorPane.rightAnchor="490.0" AnchorPane.topAnchor="0.0">
             <image>
                 <Image url="@../../res/myAppartment_logo.png"/>
             </image>
         </ImageView>
-        <HBox alignment="CENTER" layoutX="101.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="120.0"
-              minWidth="480.0" prefHeight="120.0" prefWidth="499.0" spacing="14.0" AnchorPane.bottomAnchor="0.0"
-              AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox alignment="CENTER" layoutX="100.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              minHeight="40.0" minWidth="480.0" prefHeight="40.0" prefWidth="500.0" spacing="14.0"
+              AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="15.0">
             <children>
                 <Text fx:id="mapText" onMouseClicked="#mapClicked" strokeType="OUTSIDE" strokeWidth="0.0" style=""
                       text="Kort" textAlignment="CENTER" wrappingWidth="63.662109375">
@@ -24,21 +27,24 @@
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                           orientation="VERTICAL" prefHeight="40.0" prefWidth="6.0"/>
                 <Text fx:id="overviewText" onMouseClicked="#overviewClicked" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Oversigt" textAlignment="CENTER" wrappingWidth="97.619140625">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                           orientation="VERTICAL" prefHeight="40.0" prefWidth="6.0"/>
                 <Text fx:id="settingsText" onMouseClicked="#settingsClicked" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Indstillinger" textAlignment="CENTER" wrappingWidth="142.65625">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <Separator orientation="VERTICAL" prefHeight="200.0"/>
+                <Separator maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                           orientation="VERTICAL" prefHeight="40.0" prefWidth="6.0"/>
                 <Text fx:id="logOffText" onMouseClicked="#logOutClicked" strokeType="OUTSIDE" strokeWidth="0.0"
                       text="Log ud" textAlignment="CENTER" wrappingWidth="80.802734375">
                     <font>

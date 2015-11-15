@@ -3,29 +3,45 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="150.0"
-      xmlns="http://javafx.com/javafx/8.0.40" fx:controller="project.view.manager.LeftMenuController">
+      minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.40"
+      fx:controller="project.view.manager.LeftMenuController">
     <children>
-        <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0"/>
+        <Button fx:id="allPlacesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0">
+            <VBox.margin>
+                <Insets top="30.0"/>
+            </VBox.margin>
+        </Button>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alle komplekser">
             <VBox.margin>
                 <Insets bottom="20.0"/>
             </VBox.margin>
+            <font>
+                <Font size="12.0"/>
+            </font>
         </Text>
-        <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0"/>
+        <Button fx:id="notificationsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0"/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Notifikationer">
             <VBox.margin>
                 <Insets bottom="20.0"/>
             </VBox.margin>
+            <font>
+                <Font size="12.0"/>
+            </font>
         </Text>
-        <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0"/>
+        <Button fx:id="messagesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0"/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beskeder">
             <VBox.margin>
-                <Insets bottom="5.0"/>
+                <Insets bottom="30.0"/>
             </VBox.margin>
+            <font>
+                <Font size="12.0"/>
+            </font>
         </Text>
     </children>
 </VBox>
