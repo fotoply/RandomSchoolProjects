@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
-      minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.40"
-      fx:controller="project.view.manager.LeftMenuController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
+            fx:controller="project.view.manager.LeftMenuController">
     <children>
-        <Button fx:id="allPlacesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" mnemonicParsing="false" onAction="#allPlacesClicked" prefHeight="70.0"
-                prefWidth="70.0">
-            <VBox.margin>
-                <Insets top="30.0"/>
-            </VBox.margin>
-        </Button>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alle komplekser">
-            <VBox.margin>
-                <Insets bottom="20.0"/>
-            </VBox.margin>
-            <font>
-                <Font size="12.0"/>
-            </font>
-        </Text>
-        <Button fx:id="notificationsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" mnemonicParsing="false" onAction="#notificationsClicked" prefHeight="70.0"
-                prefWidth="70.0"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Notifikationer">
-            <VBox.margin>
-                <Insets bottom="20.0"/>
-            </VBox.margin>
-            <font>
-                <Font size="12.0"/>
-            </font>
-        </Text>
-        <Button fx:id="messagesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" mnemonicParsing="false" onAction="#messagesClicked" prefHeight="70.0"
-                prefWidth="70.0"/>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beskeder">
-            <VBox.margin>
-                <Insets bottom="30.0"/>
-            </VBox.margin>
-            <font>
-                <Font size="12.0"/>
-            </font>
-        </Text>
+        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+              AnchorPane.topAnchor="0.0">
+            <children>
+                <Button fx:id="allPlacesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                        minWidth="-Infinity" mnemonicParsing="false" onAction="#allPlacesClicked" prefHeight="70.0"
+                        prefWidth="70.0">
+                    <VBox.margin>
+                        <Insets top="30.0"/>
+                    </VBox.margin>
+                </Button>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alle komplekser">
+                    <VBox.margin>
+                        <Insets bottom="20.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="12.0"/>
+                    </font>
+                </Text>
+                <Button fx:id="notificationsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                        minWidth="-Infinity" mnemonicParsing="false" onAction="#notificationsClicked" prefHeight="70.0"
+                        prefWidth="70.0"/>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Notifikationer">
+                    <VBox.margin>
+                        <Insets bottom="20.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="12.0"/>
+                    </font>
+                </Text>
+                <Button fx:id="messagesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                        minWidth="-Infinity" mnemonicParsing="false" onAction="#messagesClicked" prefHeight="70.0"
+                        prefWidth="70.0"/>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beskeder">
+                    <VBox.margin>
+                        <Insets bottom="30.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font size="12.0"/>
+                    </font>
+                </Text>
+            </children>
+            <opaqueInsets>
+                <Insets/>
+            </opaqueInsets>
+        </VBox>
     </children>
-</VBox>
+    <padding>
+        <Insets bottom="10.0" left="10.0" top="10.0"/>
+    </padding>
+</AnchorPane>

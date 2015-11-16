@@ -1,6 +1,7 @@
 package project.view.manager;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -8,7 +9,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import project.MainManager;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -17,10 +20,10 @@ import java.util.ArrayList;
  * @author Niels Norberg
  */
 public class LeftMenuController {
-    ImageView allPlacesImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/button_all_places_icon.png")));
-    ImageView notificationImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/button_notification_icon.png")));
-    ImageView messageImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/button_message_icon.png")));
-
+    public MainManager root;
+    ImageView allPlacesImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house.png")));
+    ImageView notificationImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house_notification.png")));
+    ImageView messageImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house_mail.png")));
     ArrayList<Button> buttons = new ArrayList<>();
 
     @FXML
@@ -59,25 +62,29 @@ public class LeftMenuController {
 
     }
 
-    private void selectButton(Button b) {
+    public void selectButton(Button b) {
         for (Button button : buttons) {
             if (button != b && button.getEffect() != null) {
                 button.setEffect(null);
             }
         }
 
-        DropShadow borderGlow = new DropShadow();
-        borderGlow.setOffsetY(0f);
-        borderGlow.setOffsetX(0f);
-        borderGlow.setColor(Color.YELLOW);
-        borderGlow.setWidth(80);
-        borderGlow.setHeight(80);
+        if (b != null) {
+            DropShadow borderGlow = new DropShadow();
+            borderGlow.setOffsetY(0f);
+            borderGlow.setOffsetX(0f);
+            borderGlow.setColor(Color.YELLOW);
+            borderGlow.setWidth(80);
+            borderGlow.setHeight(80);
 
-        b.setEffect(borderGlow);
+            b.setEffect(borderGlow);
+        }
     }
 
     @FXML
-    private void allPlacesClicked() {
+    private void allPlacesClicked() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
+        root.getRootPane().getRootPane().setCenter(loader.load());
         selectButton(allPlacesButton);
     }
 

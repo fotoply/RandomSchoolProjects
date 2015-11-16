@@ -27,6 +27,10 @@ public class MainManager extends Application {
         launch(args);
     }
 
+    public RootPaneController getRootPane() {
+        return rootPane;
+    }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
@@ -43,12 +47,14 @@ public class MainManager extends Application {
         loader.setLocation(getClass().getResource("view/manager/LeftMenu.fxml"));
         rootPane.getRootPane().setLeft(loader.load());
         leftMenu = loader.getController();
+        leftMenu.root = this;
 
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml"));
         rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
         upperMenu.setPrimaryStage(primaryStage);
+        upperMenu.root = this;
 
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/manager/center/PersonInfo.fxml"));
@@ -63,5 +69,21 @@ public class MainManager extends Application {
         primaryStage.setResizable(false); // Set to true if resizing is needed for testing
         primaryStage.initStyle(StageStyle.UNDECORATED); // Also set this to any other style to allow resizing
         rootPane.getRootPane().setPadding(Insets.EMPTY);
+    }
+
+    public LeftMenuController getLeftMenu() {
+        return leftMenu;
+    }
+
+    public void setLeftMenu(LeftMenuController leftMenu) {
+        this.leftMenu = leftMenu;
+    }
+
+    public UpperMenuController getUpperMenu() {
+        return upperMenu;
+    }
+
+    public void setUpperMenu(UpperMenuController upperMenu) {
+        this.upperMenu = upperMenu;
     }
 }
