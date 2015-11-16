@@ -9,7 +9,8 @@
       fx:controller="project.view.manager.LeftMenuController">
     <children>
         <Button fx:id="allPlacesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0">
+                minWidth="-Infinity" mnemonicParsing="false" onAction="#allPlacesClicked" prefHeight="70.0"
+                prefWidth="70.0">
             <VBox.margin>
                 <Insets top="30.0"/>
             </VBox.margin>
@@ -23,7 +24,8 @@
             </font>
         </Text>
         <Button fx:id="notificationsButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0"/>
+                minWidth="-Infinity" mnemonicParsing="false" onAction="#notificationsClicked" prefHeight="70.0"
+                prefWidth="70.0"/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Notifikationer">
             <VBox.margin>
                 <Insets bottom="20.0"/>
@@ -33,7 +35,8 @@
             </font>
         </Text>
         <Button fx:id="messagesButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-                minWidth="-Infinity" mnemonicParsing="false" prefHeight="70.0" prefWidth="70.0"/>
+                minWidth="-Infinity" mnemonicParsing="false" onAction="#messagesClicked" prefHeight="70.0"
+                prefWidth="70.0"/>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beskeder">
             <VBox.margin>
                 <Insets bottom="30.0"/>
