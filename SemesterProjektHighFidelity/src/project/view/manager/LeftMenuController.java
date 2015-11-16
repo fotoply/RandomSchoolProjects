@@ -64,7 +64,7 @@ public class LeftMenuController {
 
     public void selectButton(Button b) {
         for (Button button : buttons) {
-            if (button != b && button.getEffect() != null) {
+            if (button.getEffect() != null) {
                 button.setEffect(null);
             }
         }

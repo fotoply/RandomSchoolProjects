@@ -59,6 +59,7 @@ public class UpperMenuController {
             loader = new FXMLLoader(getClass().getResource("LeftMenu.fxml"));
             root.getRootPane().getRootPane().setLeft(loader.load());
             root.setLeftMenu(loader.getController());
+            ((LeftMenuController) loader.getController()).root = root;
         }
     }
 
@@ -76,7 +77,7 @@ public class UpperMenuController {
     public void settingsClicked() throws IOException {
         if (!settingsText.getFont().getName().contains("Bold")) {
             textClicked(settingsText);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Settings.fxml"));
             root.getRootPane().getRootPane().setCenter(loader.load());
             root.getRootPane().getRootPane().setLeft(null);
         }
