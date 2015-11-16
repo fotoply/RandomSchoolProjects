@@ -72,7 +72,7 @@ public class HighFidelTestController {
         if (e.getY() > backgoundAreaView.getFitHeight() - 50) {
             selectionBox.setY((backgoundAreaView.getFitHeight()) / 2 - 30);
         }
-        pauseMusic();
+        //pauseMusic();
         //getMoodNumbers();
     }
 
