@@ -18,7 +18,7 @@ public class Notification {
 
     // senderProperty
     private final ObjectProperty<Person> senderProperty = new SimpleObjectProperty<>(this, "sender");
-    ArrayList<Person> receivers = new ArrayList<>();
+    ArrayList<House> receivers = new ArrayList<>();
 
     public final StringProperty messageProperty() {
         return messageProperty;

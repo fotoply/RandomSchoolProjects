@@ -14,7 +14,7 @@ public class House {
 
     // locationProperty
     private final StringProperty locationProperty = new SimpleStringProperty(this, "location");
-    ArrayList<Person> tenants = new ArrayList<>();
+    ArrayList<Tenant> tenants = new ArrayList<>();
     ArrayList<Person> managers = new ArrayList<>();
     ArrayList<Notification> notifications = new ArrayList<>();
     ArrayList<Message> messages = new ArrayList<>();

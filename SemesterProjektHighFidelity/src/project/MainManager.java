@@ -48,6 +48,11 @@ public class MainManager extends Application {
         rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
         upperMenu.setPrimaryStage(primaryStage);
+
+        loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("view/manager/center/PersonInfo.fxml"));
+        rootPane.getRootPane().setCenter(loader.load());
+
     }
 
     private void loadRoot() throws IOException {
