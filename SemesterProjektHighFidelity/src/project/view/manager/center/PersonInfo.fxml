@@ -23,8 +23,8 @@
                 <Font name="System Bold" size="30.0"/>
             </font>
         </Text>
-        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Lejekontrakt" textAlignment="RIGHT" underline="true"
-              wrappingWidth="294.0" GridPane.columnIndex="1"/>
+        <Text fx:id="textKontract" strokeType="OUTSIDE" strokeWidth="0.0" text="Lejekontrakt" textAlignment="RIGHT"
+              underline="true" wrappingWidth="294.0" GridPane.columnIndex="1"/>
         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
             <children>
                 <Text fill="#393939" strokeType="OUTSIDE" strokeWidth="0.0" text="Noter:">
@@ -32,7 +32,7 @@
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <TextArea prefHeight="136.0" prefWidth="599.0"
+                <TextArea fx:id="textAreaNotes" prefHeight="136.0" prefWidth="599.0"
                           style="-fx-text-box-border: transparent; -fx-background-color: e3e1e2;">
                     <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
@@ -53,6 +53,29 @@
                     </font>
                 </Text>
                 <Text fill="#393939" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+            </children>
+            <GridPane.margin>
+                <Insets top="20.0"/>
+            </GridPane.margin>
+        </VBox>
+        <VBox fx:id="adressText" prefHeight="200.0" prefWidth="100.0" spacing="20.0" GridPane.columnIndex="1"
+              GridPane.rowIndex="1">
+            <children>
+                <Text fx:id="textName" fill="#393939" strokeType="OUTSIDE" strokeWidth="0.0" text="NAVN">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textNumber" fill="#393939" strokeType="OUTSIDE" strokeWidth="0.0" text="NUMMER">
+                    <font>
+                        <Font size="20.0"/>
+                    </font>
+                </Text>
+                <Text fx:id="textMail" fill="#393939" strokeType="OUTSIDE" strokeWidth="0.0" text="MAIL">
                     <font>
                         <Font size="20.0"/>
                     </font>
