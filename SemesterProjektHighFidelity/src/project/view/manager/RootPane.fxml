@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
@@ -13,6 +14,15 @@
             <image>
                 <Image url="@../../res/background.png"/>
             </image>
+        </ImageView>
+        <ImageView fx:id="iconImage" cache="true" cacheHint="QUALITY" fitWidth="120.0" layoutX="10.0" layoutY="10.0"
+                   pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../res/myAppartment_logo.png"/>
+            </image>
+            <viewport>
+                <Rectangle2D height="1560.0" width="1580.0"/>
+            </viewport>
         </ImageView>
         <BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                     minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"

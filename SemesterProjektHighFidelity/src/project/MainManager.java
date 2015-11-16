@@ -6,6 +6,7 @@ package project;/**
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -61,5 +62,6 @@ public class MainManager extends Application {
         rootPane = loader.getController();
         primaryStage.setResizable(false); // Set to true if resizing is needed for testing
         primaryStage.initStyle(StageStyle.UNDECORATED); // Also set this to any other style to allow resizing
+        rootPane.getRootPane().setPadding(Insets.EMPTY);
     }
 }

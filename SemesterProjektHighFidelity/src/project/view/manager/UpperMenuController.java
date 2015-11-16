@@ -1,7 +1,6 @@
 package project.view.manager;
 
 import javafx.fxml.FXML;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -32,10 +31,6 @@ public class UpperMenuController {
 
     @FXML
     void initialize() {
-        iconImage.setImage(new Image(getClass().getResourceAsStream("/project/res/myAppartment_logo.png")));
-        iconImage.setPreserveRatio(true);
-        iconImage.setSmooth(true);
-        System.out.println("Initialized icon");
     }
 
     private void textClicked(Text textClicked) {
