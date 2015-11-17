@@ -42,5 +42,6 @@ public class OverviewController {
     public void setRoot(MainManager root) {
         this.root = root;
         tableView.setItems(root.getHouses());
+        tableView.setId("my-table");
     }
 }

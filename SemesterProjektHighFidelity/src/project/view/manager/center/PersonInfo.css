@@ -7,8 +7,16 @@
 
 }
 
-*.table-view {
-    -fx-alternative-column-fill-visible: true;
-    -fx-background-color: c9c9c9;
-    -fx-border-color: c9c9c9;
+#my-table .table-cell {
+    -fx-alignment: CENTER-LEFT;
+    /* The rest is from caspian.css */
+
+    -fx-skin: "com.sun.javafx.scene.control.skin.TableCellSkin";
+    -fx-padding: 0;
+
+    -fx-background-color: transparent;
+    -fx-border-color: transparent -fx-table-cell-border-color transparent transparent;
+    -fx-border-width: 0;
+    -fx-cell-size: 2;
+    -fx-text-fill: -fx-text-inner-color;
 }

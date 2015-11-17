@@ -2,6 +2,7 @@ package project.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -76,8 +77,10 @@ public class House {
             borderGlow.setOffsetY(0f);
             borderGlow.setOffsetX(0f);
             borderGlow.setColor(Color.YELLOW);
-            borderGlow.setWidth(40);
-            borderGlow.setHeight(40);
+            borderGlow.setWidth(60);
+            borderGlow.setHeight(60);
+            borderGlow.setBlurType(BlurType.THREE_PASS_BOX);
+            borderGlow.setSpread(0.7);
             imageView.setEffect(borderGlow);
         }
         return imageView;
