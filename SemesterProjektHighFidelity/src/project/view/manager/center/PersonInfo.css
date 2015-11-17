@@ -6,3 +6,9 @@
     -fx-pref-height: 6;
 
 }
+
+*.table-view {
+    -fx-alternative-column-fill-visible: true;
+    -fx-background-color: c9c9c9;
+    -fx-border-color: c9c9c9;
+}

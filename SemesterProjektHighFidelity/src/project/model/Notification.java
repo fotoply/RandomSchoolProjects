@@ -18,6 +18,14 @@ public class Notification {
     // unreadProperty
     private final BooleanProperty unreadProperty = new SimpleBooleanProperty(this, "unread");
     ArrayList<House> receivers = new ArrayList<>();
+    private TYPE type;
+
+    public Notification(String message, Person sender, TYPE type) {
+        setMessage(message);
+        setSender(sender);
+        setUnread(true);
+        this.type = type;
+    }
 
     public final BooleanProperty unreadProperty() {
         return unreadProperty;
@@ -30,7 +38,6 @@ public class Notification {
     public final void setUnread(boolean value) {
         unreadProperty.set(value);
     }
-
 
     public final StringProperty messageProperty() {
         return messageProperty;
@@ -57,5 +64,4 @@ public class Notification {
     }
 
     public enum TYPE {INFO, WARNING, DUTY, URGENT}
-
 }

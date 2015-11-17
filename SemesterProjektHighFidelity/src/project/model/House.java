@@ -76,11 +76,34 @@ public class House {
             borderGlow.setOffsetY(0f);
             borderGlow.setOffsetX(0f);
             borderGlow.setColor(Color.YELLOW);
-            borderGlow.setWidth(80);
-            borderGlow.setHeight(80);
+            borderGlow.setWidth(40);
+            borderGlow.setHeight(40);
             imageView.setEffect(borderGlow);
         }
         return imageView;
     }
 
+    public void addMessage(Message message) {
+        messages.add(message);
+    }
+
+    public void addNotification(Notification notification) {
+        notifications.add(notification);
+    }
+
+    public ArrayList<Tenant> getTenants() {
+        return tenants;
+    }
+
+    public ArrayList<Person> getManagers() {
+        return managers;
+    }
+
+    public ArrayList<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public ArrayList<Message> getMessages() {
+        return messages;
+    }
 }

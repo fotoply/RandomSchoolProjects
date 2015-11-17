@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import project.model.House;
+import project.model.Message;
+import project.model.Person;
 import project.view.manager.LeftMenuController;
 import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
@@ -49,7 +51,10 @@ public class MainManager extends Application {
 
         primaryStage.show();
 
-        houses.add(new House("Hejlevej 11"));
+        House tempHouse = new House("Hejlevej 11");
+        tempHouse.addMessage(new Message("Hallo", new Person(), Message.TYPE.DUTY));
+
+        houses.add(tempHouse);
         houses.add(new House("Lalaladada vej 11"));
         houses.add(new House("Odensevej ost"));
     }

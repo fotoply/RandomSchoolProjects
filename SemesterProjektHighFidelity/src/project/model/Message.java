@@ -18,6 +18,14 @@ public class Message {
     // unreadProperty
     private final BooleanProperty unreadProperty = new SimpleBooleanProperty(this, "unread");
     ArrayList<Person> receivers = new ArrayList<>();
+    private TYPE type;
+
+    public Message(String message, Person sender, TYPE type) {
+        setMessage(message);
+        setSender(sender);
+        setUnread(true);
+        this.type = type;
+    }
 
     public final BooleanProperty unreadProperty() {
         return unreadProperty;

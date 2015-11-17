@@ -9,12 +9,15 @@
             fx:controller="project.view.manager.center.OverviewController">
     <children>
         <TableView fx:id="tableView" focusTraversable="false" layoutX="200.0" layoutY="100.0" prefHeight="200.0"
-                   prefWidth="200.0" style="-fx-border-width: 0; -fx-border-style: none;" AnchorPane.bottomAnchor="0.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                   prefWidth="200.0" style="-fx-border-width: 0; -fx-border-style: none; -fx-background-color: c9c9c9;"
+                   stylesheets="@PersonInfo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn fx:id="addressColumn" prefWidth="391.0" text="Gadenavn"/>
-                <TableColumn fx:id="messageColumn" prefWidth="97.0"/>
-                <TableColumn fx:id="notificationColumn" prefWidth="111.0"/>
+                <TableColumn fx:id="addressColumn" prefWidth="378.0" resizable="false" text="Gadenavn"/>
+                <TableColumn fx:id="messageColumn" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false"
+                             style="-fx-alignment: center;"/>
+                <TableColumn fx:id="notificationColumn" prefWidth="100.0" resizable="false" sortable="false"
+                             style="-fx-alignment: center;"/>
             </columns>
         </TableView>
     </children>
