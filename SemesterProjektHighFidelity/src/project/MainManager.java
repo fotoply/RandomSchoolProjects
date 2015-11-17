@@ -5,6 +5,8 @@ package project;/**
  */
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -16,7 +18,6 @@ import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainManager extends Application {
 
@@ -25,10 +26,14 @@ public class MainManager extends Application {
     private LeftMenuController leftMenu;
     private UpperMenuController upperMenu;
 
-    private ArrayList<House> houses = new ArrayList<>();
+    private ObservableList<House> houses = FXCollections.observableArrayList();
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public ObservableList<House> getHouses() {
+        return houses;
     }
 
     public RootPaneController getRootPane() {

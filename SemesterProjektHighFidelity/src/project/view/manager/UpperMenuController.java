@@ -72,6 +72,7 @@ public class UpperMenuController {
             root.getRootPane().getRootPane().setCenter(loader.load());
             root.getRootPane().getRootPane().setLeft(null);
             ((OverviewController) loader.getController()).setRoot(root);
+            ((OverviewController) loader.getController()).setCells();
         }
     }
 

@@ -50,33 +50,37 @@ public class House {
     public ImageView getNotificationIcon() {
         for (Notification notification : notifications) {
             if (notification.isUnread()) {
-                return applyGlowToImage("/project/res/notification.png");
+                return constructImage("/project/res/notification.png", true);
             }
         }
-        return new ImageView(new Image(getClass().getResourceAsStream("/project/res/notification.png")));
+        return constructImage("/project/res/notification.png", false);
     }
 
     public ImageView getMessageIcon() {
         for (Message message : messages) {
             if (message.isUnread()) {
-                return applyGlowToImage("/project/res/mail.png");
+                return constructImage("/project/res/mail.png", true);
             }
         }
-        return new ImageView(new Image(getClass().getResourceAsStream("/project/res/mail.png")));
+        return constructImage("/project/res/mail.png", false);
     }
 
-    public ImageView applyGlowToImage(String url) {
+    public ImageView constructImage(String url, boolean applyGlow) {
         Image icon = new Image(getClass().getResourceAsStream(url));
-        ImageView glowIcon = new ImageView(icon);
+        ImageView imageView = new ImageView(icon);
+        imageView.setPreserveRatio(true);
+        imageView.setFitWidth(30);
 
-        DropShadow borderGlow = new DropShadow();
-        borderGlow.setOffsetY(0f);
-        borderGlow.setOffsetX(0f);
-        borderGlow.setColor(Color.YELLOW);
-        borderGlow.setWidth(40);
-        borderGlow.setHeight(40);
-        glowIcon.setEffect(borderGlow);
-        return glowIcon;
+        if (applyGlow) {
+            DropShadow borderGlow = new DropShadow();
+            borderGlow.setOffsetY(0f);
+            borderGlow.setOffsetX(0f);
+            borderGlow.setColor(Color.YELLOW);
+            borderGlow.setWidth(80);
+            borderGlow.setHeight(80);
+            imageView.setEffect(borderGlow);
+        }
+        return imageView;
     }
 
 }

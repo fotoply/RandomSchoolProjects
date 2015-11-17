@@ -1,7 +1,9 @@
 package project.view.manager.center;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import project.MainManager;
 import project.model.House;
@@ -12,6 +14,9 @@ import project.model.House;
  * @author Niels Norberg
  */
 public class OverviewController {
+
+    @FXML
+    private TableView<House> tableView;
 
     @FXML
     private TableColumn<House, String> addressColumn;
@@ -28,7 +33,14 @@ public class OverviewController {
 
     }
 
+    public void setCells() {
+        addressColumn.setCellValueFactory(param -> param.getValue().locationProperty());
+        messageColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMessageIcon()));
+        notificationColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getNotificationIcon()));
+    }
+
     public void setRoot(MainManager root) {
         this.root = root;
+        tableView.setItems(root.getHouses());
     }
 }
