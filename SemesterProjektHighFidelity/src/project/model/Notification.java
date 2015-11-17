@@ -1,9 +1,6 @@
 package project.model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 import java.util.ArrayList;
 
@@ -18,7 +15,22 @@ public class Notification {
 
     // senderProperty
     private final ObjectProperty<Person> senderProperty = new SimpleObjectProperty<>(this, "sender");
+    // unreadProperty
+    private final BooleanProperty unreadProperty = new SimpleBooleanProperty(this, "unread");
     ArrayList<House> receivers = new ArrayList<>();
+
+    public final BooleanProperty unreadProperty() {
+        return unreadProperty;
+    }
+
+    public final boolean isUnread() {
+        return unreadProperty.get();
+    }
+
+    public final void setUnread(boolean value) {
+        unreadProperty.set(value);
+    }
+
 
     public final StringProperty messageProperty() {
         return messageProperty;
