@@ -18,6 +18,12 @@ public class Person {
     // mailProperty - Used for storing and getting the email address of a person
     private final StringProperty mailProperty = new SimpleStringProperty(this, "mail");
 
+    public Person(String name, int phoneNumber, String email) {
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setMail(email);
+    }
+
     public final StringProperty nameProperty() {
         return nameProperty;
     }
@@ -53,5 +59,4 @@ public class Person {
     public final void setMail(String value) {
         mailProperty.set(value);
     }
-
 }

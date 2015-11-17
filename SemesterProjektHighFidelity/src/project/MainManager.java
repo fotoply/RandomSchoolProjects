@@ -52,7 +52,7 @@ public class MainManager extends Application {
         primaryStage.show();
 
         House tempHouse = new House("Hejlevej 11");
-        tempHouse.addMessage(new Message("Hallo", new Person(), Message.TYPE.DUTY));
+        tempHouse.addMessage(new Message("Hallo", new Person("Kaj", 66, "Ost@ost.ost"), Message.TYPE.DUTY));
 
         houses.add(tempHouse);
         houses.add(new House("Lalaladada vej 11"));
