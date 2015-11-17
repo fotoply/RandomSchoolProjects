@@ -63,7 +63,8 @@ public class MainManager extends Application {
     }
 
     private void loadRoot() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/RootPane.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("view/manager/RootPane.fxml"));
         primaryStage.setScene(new Scene(loader.load()));
         rootPane = loader.getController();
         primaryStage.setResizable(false); // Set to true if resizing is needed for testing
