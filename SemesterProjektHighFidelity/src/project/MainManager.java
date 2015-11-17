@@ -10,11 +10,13 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import project.model.House;
 import project.view.manager.LeftMenuController;
 import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainManager extends Application {
 
@@ -22,6 +24,8 @@ public class MainManager extends Application {
     private RootPaneController rootPane;
     private LeftMenuController leftMenu;
     private UpperMenuController upperMenu;
+
+    private ArrayList<House> houses = new ArrayList<>();
 
     public static void main(String[] args) {
         launch(args);
@@ -39,6 +43,10 @@ public class MainManager extends Application {
         loadMenus();
 
         primaryStage.show();
+
+        houses.add(new House("Hejlevej 11"));
+        houses.add(new House("Lalaladada vej 11"));
+        houses.add(new House("Odensevej ost"));
     }
 
     private void loadMenus() throws IOException {

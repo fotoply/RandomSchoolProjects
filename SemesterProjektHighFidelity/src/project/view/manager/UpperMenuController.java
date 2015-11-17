@@ -7,6 +7,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import project.MainManager;
+import project.view.manager.center.OverviewController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,6 +71,7 @@ public class UpperMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Overview.fxml"));
             root.getRootPane().getRootPane().setCenter(loader.load());
             root.getRootPane().getRootPane().setLeft(null);
+            ((OverviewController) loader.getController()).setRoot(root);
         }
     }
 
