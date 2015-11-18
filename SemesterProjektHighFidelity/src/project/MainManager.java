@@ -56,6 +56,7 @@ public class MainManager extends Application {
 
         House tempHouse = new House("Hejlevej 11");
         Tenant tenant = new Tenant("Kaj", 66, "Ost@ost.ost");
+        tenant.setNotes("Doesn't even clean his room. \n Very bad at responding to ANYTHING");
         tempHouse.addPerson(tenant);
         tempHouse.addMessage(new Message("Hallo", tenant, Message.TYPE.DUTY));
 
