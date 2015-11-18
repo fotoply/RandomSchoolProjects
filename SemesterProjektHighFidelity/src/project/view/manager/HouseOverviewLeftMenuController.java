@@ -1,14 +1,17 @@
 package project.view.manager;
 
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import javafx.util.Duration;
 import project.MainManager;
 
 import java.io.IOException;
@@ -19,7 +22,10 @@ import java.util.ArrayList;
  *
  * @author Niels Norberg
  */
-public class HouseOverviewLeftMenuController {
+public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
+    @FXML
+    public Node node;
+
     public MainManager root;
     ImageView allPlacesImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house.png")));
     ImageView notificationImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house_notification.png")));
@@ -35,6 +41,8 @@ public class HouseOverviewLeftMenuController {
 
     @FXML
     private void initialize() {
+        node.setTranslateX(-node.prefWidth(-1));
+
         buttons.add(infoButton);
         buttons.add(notificationsButton);
         buttons.add(messagesButton);
@@ -98,5 +106,19 @@ public class HouseOverviewLeftMenuController {
         selectButton(messagesButton);
     }
 
+    @Override
+    public void openNode() {
+        TranslateTransition translateTransition = new TranslateTransition(new Duration(200), node);
+        translateTransition.setToX(0);
+        translateTransition.play();
+    }
+
+    @Override
+    public TranslateTransition closeNode() {
+        TranslateTransition translateTransition = new TranslateTransition(new Duration(200), node);
+        translateTransition.setToX(-node.prefWidth(-1));
+        translateTransition.play();
+        return translateTransition;
+    }
 }
 

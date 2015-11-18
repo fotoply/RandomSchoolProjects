@@ -2,6 +2,7 @@ package project.view.manager;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -47,8 +48,6 @@ public class UpperMenuController {
             textFields.add(textClicked);
 
         }
-
-        root.getLeftMenu().selectButton(null);
     }
 
     @FXML
@@ -58,8 +57,8 @@ public class UpperMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
             root.getRootPane().getRootPane().setCenter(loader.load());
             loader = new FXMLLoader(getClass().getResource("LeftMenu.fxml"));
-            root.getRootPane().getRootPane().setLeft(loader.load());
-            root.setLeftMenu(loader.getController());
+            Node node = loader.load();
+            root.setLeftMenu(loader.getController(), node);
             ((LeftMenuController) loader.getController()).root = root;
         }
     }
@@ -70,7 +69,7 @@ public class UpperMenuController {
             textClicked(overviewText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Overview.fxml"));
             root.getRootPane().getRootPane().setCenter(loader.load());
-            root.getRootPane().getRootPane().setLeft(null);
+            root.setLeftMenu(null, null);
             ((OverviewController) loader.getController()).setRoot(root);
             ((OverviewController) loader.getController()).setCells();
         }
@@ -81,8 +80,8 @@ public class UpperMenuController {
         if (!settingsText.getFont().getName().contains("Bold")) {
             textClicked(settingsText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Settings.fxml"));
+            root.setLeftMenu(null, null);
             root.getRootPane().getRootPane().setCenter(loader.load());
-            root.getRootPane().getRootPane().setLeft(null);
         }
     }
 

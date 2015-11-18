@@ -4,12 +4,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="node" xmlns="http://javafx.com/javafx/8.0.40"
             fx:controller="project.view.manager.HouseOverviewLeftMenuController">
     <children>
         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-              AnchorPane.topAnchor="0.0">
+              prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+              AnchorPane.topAnchor="5.0">
             <children>
                 <Button fx:id="infoButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
                         minWidth="-Infinity" mnemonicParsing="false" onAction="#infoButtonClicked" prefHeight="70.0"
@@ -54,7 +54,4 @@
             </opaqueInsets>
         </VBox>
     </children>
-    <padding>
-        <Insets bottom="10.0" left="10.0" top="10.0"/>
-    </padding>
 </AnchorPane>

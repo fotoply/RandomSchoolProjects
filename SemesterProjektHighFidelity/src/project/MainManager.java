@@ -7,8 +7,11 @@ package project;/**
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -16,6 +19,7 @@ import project.model.House;
 import project.model.Message;
 import project.model.Tenant;
 import project.view.manager.LeftMenuController;
+import project.view.manager.OpenCloseAnimated;
 import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
 
@@ -25,7 +29,7 @@ public class MainManager extends Application {
 
     private Stage primaryStage;
     private RootPaneController rootPane;
-    private LeftMenuController leftMenu;
+    private OpenCloseAnimated leftMenu;
     private UpperMenuController upperMenu;
 
     private ObservableList<House> houses = FXCollections.observableArrayList();
@@ -63,9 +67,9 @@ public class MainManager extends Application {
         FXMLLoader loader = new FXMLLoader();
 
         loader.setLocation(getClass().getResource("view/manager/LeftMenu.fxml"));
-        rootPane.getRootPane().setLeft(loader.load());
-        leftMenu = loader.getController();
-        leftMenu.root = this;
+        Node node = loader.load();
+        setLeftMenu(loader.getController(), node);
+        ((LeftMenuController) leftMenu).root = this;
 
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml"));
@@ -90,12 +94,29 @@ public class MainManager extends Application {
         rootPane.getRootPane().setPadding(Insets.EMPTY);
     }
 
-    public LeftMenuController getLeftMenu() {
+    public OpenCloseAnimated getLeftMenu() {
         return leftMenu;
     }
 
-    public void setLeftMenu(LeftMenuController leftMenu) {
-        this.leftMenu = leftMenu;
+    public void setLeftMenu(OpenCloseAnimated controller, Node leftMenu) {
+        if (rootPane.getRootPane().getLeft() != null) {
+            getLeftMenu().closeNode().setOnFinished(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    rootPane.getRootPane().setLeft(null);
+                    setLeftMenu(controller, leftMenu);
+                }
+            });
+            return;
+        }
+        if (controller == null) {
+            this.leftMenu = null;
+            this.rootPane.getRootPane().setLeft(null);
+            return;
+        }
+        this.leftMenu = controller;
+        this.rootPane.getRootPane().setLeft(leftMenu);
+        controller.openNode();
     }
 
     public UpperMenuController getUpperMenu() {

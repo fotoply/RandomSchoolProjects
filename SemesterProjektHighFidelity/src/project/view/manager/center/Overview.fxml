@@ -13,8 +13,8 @@
                    stylesheets="@PersonInfo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn fx:id="addressColumn" prefWidth="378.0" resizable="false" style="-fx-text-alignment: left;"
-                             text="Gadenavn"/>
+                <TableColumn fx:id="addressColumn" prefWidth="378.0" resizable="false"
+                             style="-fx-text-alignment: left; -fx-alignment: center-left" text="Gadenavn"/>
                 <TableColumn fx:id="messageColumn" minWidth="100.0" prefWidth="100.0" resizable="false" sortable="false"
                              style="-fx-alignment: center;"/>
                 <TableColumn fx:id="notificationColumn" prefWidth="100.0" resizable="false" sortable="false"

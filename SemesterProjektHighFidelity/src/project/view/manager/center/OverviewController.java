@@ -1,11 +1,14 @@
 package project.view.manager.center;
 
+import javafx.animation.TranslateTransition;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import project.MainManager;
 import project.model.House;
 import project.view.manager.HouseOverviewLeftMenuController;
@@ -37,7 +40,6 @@ public class OverviewController {
 
     }
 
-    @FXML
     private void tableClicked(House house) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("HouseOverview.fxml"));
         try {
@@ -50,11 +52,12 @@ public class OverviewController {
 
         loader = new FXMLLoader(getClass().getResource("/project/view/manager/HouseOverviewLeftMenu.fxml"));
         try {
-            root.getRootPane().getRootPane().setLeft(loader.load());
+            Node node = loader.load();
+            ((HouseOverviewLeftMenuController) loader.getController()).root = root;
+            root.setLeftMenu(loader.getController(), node);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ((HouseOverviewLeftMenuController) loader.getController()).root = root;
     }
 
     public void setCells() {
@@ -69,5 +72,12 @@ public class OverviewController {
         this.root = root;
         tableView.setItems(root.getHouses());
         tableView.setId("my-table");
+    }
+
+    public void closeNode() {
+        TranslateTransition translateTransition = new TranslateTransition(new Duration(200), root.getRootPane().getRootPane().getLeft());
+        root.getRootPane().getRootPane().setLeft(root.getRootPane().getRootPane().getLeft());
+        translateTransition.setToX(-root.getRootPane().getRootPane().getLeft().prefWidth(-1));
+        translateTransition.play();
     }
 }
