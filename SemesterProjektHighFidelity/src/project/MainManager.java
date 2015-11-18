@@ -55,7 +55,9 @@ public class MainManager extends Application {
         loadMenus();
 
         House tempHouse = new House("Hejlevej 11");
-        tempHouse.addMessage(new Message("Hallo", new Tenant("Kaj", 66, "Ost@ost.ost"), Message.TYPE.DUTY));
+        Tenant tenant = new Tenant("Kaj", 66, "Ost@ost.ost");
+        tempHouse.addPerson(tenant);
+        tempHouse.addMessage(new Message("Hallo", tenant, Message.TYPE.DUTY));
 
         houses.add(tempHouse);
         houses.add(new House("Lalaladada vej 11"));

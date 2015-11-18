@@ -20,6 +20,7 @@ public class Notification {
     // typeProperty
     private final ObjectProperty<TYPE> typeProperty = new SimpleObjectProperty<>(this, "type");
     ObservableList<House> receivers = FXCollections.observableArrayList();
+
     public Notification(String message, Person sender, TYPE type) {
         setMessage(message);
         setSender(sender);

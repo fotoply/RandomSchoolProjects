@@ -19,6 +19,7 @@ public class Message {
     // typeProperty
     private final ObjectProperty<TYPE> typeProperty = new SimpleObjectProperty<>(this, "type");
     ObservableList<Person> receivers = FXCollections.observableArrayList();
+
     public Message(String message, Person sender, TYPE type) {
         setMessage(message);
         setSender(sender);

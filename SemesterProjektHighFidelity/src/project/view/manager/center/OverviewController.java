@@ -51,8 +51,8 @@ public class OverviewController implements OpenCloseAnimated {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ((HouseOverviewController) loader.getController()).root = root;
-        ((HouseOverviewController) loader.getController()).house = house;
+        ((HouseOverviewController) loader.getController()).setRoot(root);
+        ((HouseOverviewController) loader.getController()).setHouse(house);
 
         loader = new FXMLLoader(getClass().getResource("/project/view/manager/HouseOverviewLeftMenu.fxml"));
         try {
