@@ -4,9 +4,9 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40"
-            fx:controller="project.view.manager.center.OverviewController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="node" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="project.view.manager.center.OverviewController">
     <children>
         <TableView fx:id="tableView" focusTraversable="false" layoutX="200.0" layoutY="100.0" prefHeight="200.0"
                    prefWidth="200.0" style="-fx-border-width: 0; -fx-border-style: none; -fx-background-color: c9c9c9;"

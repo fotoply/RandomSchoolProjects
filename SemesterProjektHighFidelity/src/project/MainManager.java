@@ -31,6 +31,7 @@ public class MainManager extends Application {
     private RootPaneController rootPane;
     private OpenCloseAnimated leftMenu;
     private UpperMenuController upperMenu;
+    private OpenCloseAnimated contentController;
 
     private ObservableList<House> houses = FXCollections.observableArrayList();
 
@@ -42,7 +43,7 @@ public class MainManager extends Application {
         return houses;
     }
 
-    public RootPaneController getRootPane() {
+    private RootPaneController getRootPane() {
         return rootPane;
     }
 
@@ -51,9 +52,8 @@ public class MainManager extends Application {
         this.primaryStage = primaryStage;
 
         loadRoot();
-        loadMenus();
-
         primaryStage.show();
+        loadMenus();
 
         House tempHouse = new House("Hejlevej 11");
         tempHouse.addMessage(new Message("Hallo", new Tenant("Kaj", 66, "Ost@ost.ost"), Message.TYPE.DUTY));
@@ -77,10 +77,6 @@ public class MainManager extends Application {
         upperMenu = loader.getController();
         upperMenu.setPrimaryStage(primaryStage);
         upperMenu.root = this;
-
-        loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("view/manager/center/PersonInfo.fxml"));
-        rootPane.getRootPane().setCenter(loader.load());
 
     }
 
@@ -109,7 +105,7 @@ public class MainManager extends Application {
             });
             return;
         }
-        if (controller == null) {
+        if (leftMenu == null) {
             this.leftMenu = null;
             this.rootPane.getRootPane().setLeft(null);
             return;
@@ -125,5 +121,33 @@ public class MainManager extends Application {
 
     public void setUpperMenu(UpperMenuController upperMenu) {
         this.upperMenu = upperMenu;
+    }
+
+    public OpenCloseAnimated getContentController() {
+        return contentController;
+    }
+
+    public void setContent(OpenCloseAnimated controller, Node content) {
+        if (rootPane.getRootPane().getCenter() != null && getContentController() != null) {
+            getContentController().closeNode().setOnFinished(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    rootPane.getRootPane().setCenter(null);
+                    contentController = null;
+                    setContent(controller, content);
+                }
+            });
+            return;
+        }
+        if (content == null) {
+            this.contentController = null;
+            this.getRootPane().getRootPane().setCenter(null);
+        } else {
+            this.contentController = controller;
+            this.rootPane.getRootPane().setCenter(content);
+            if (controller != null) {
+                controller.openNode();
+            }
+        }
     }
 }

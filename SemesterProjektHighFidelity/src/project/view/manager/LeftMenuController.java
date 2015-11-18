@@ -90,7 +90,8 @@ public class LeftMenuController implements OpenCloseAnimated {
     @FXML
     private void allPlacesClicked() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
-        root.getRootPane().getRootPane().setCenter(loader.load());
+        Node node = loader.load();
+        root.setContent(loader.getController(), node);
         selectButton(allPlacesButton);
     }
 

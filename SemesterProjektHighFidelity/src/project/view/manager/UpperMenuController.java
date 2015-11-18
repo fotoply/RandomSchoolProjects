@@ -55,9 +55,10 @@ public class UpperMenuController {
         if (!mapText.getFont().getName().contains("Bold")) {
             textClicked(mapText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
-            root.getRootPane().getRootPane().setCenter(loader.load());
-            loader = new FXMLLoader(getClass().getResource("LeftMenu.fxml"));
             Node node = loader.load();
+            root.setContent(loader.getController(), node);
+            loader = new FXMLLoader(getClass().getResource("LeftMenu.fxml"));
+            node = loader.load();
             root.setLeftMenu(loader.getController(), node);
             ((LeftMenuController) loader.getController()).root = root;
         }
@@ -68,8 +69,9 @@ public class UpperMenuController {
         if (!overviewText.getFont().getName().contains("Bold")) {
             textClicked(overviewText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Overview.fxml"));
-            root.getRootPane().getRootPane().setCenter(loader.load());
             root.setLeftMenu(null, null);
+            Node node = loader.load();
+            root.setContent(loader.getController(), node);
             ((OverviewController) loader.getController()).setRoot(root);
             ((OverviewController) loader.getController()).setCells();
         }
@@ -81,7 +83,8 @@ public class UpperMenuController {
             textClicked(settingsText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Settings.fxml"));
             root.setLeftMenu(null, null);
-            root.getRootPane().getRootPane().setCenter(loader.load());
+            Node node = loader.load();
+            root.setContent(loader.getController(), node);
         }
     }
 
