@@ -1,6 +1,7 @@
 package project.model;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Created 11/13/15
@@ -8,6 +9,16 @@ import java.util.ArrayList;
  * @author Niels Norberg
  */
 public class Manager extends Person {
-    ArrayList<House> houses = new ArrayList<>();
+    ObservableList<House> houses = FXCollections.observableArrayList();
+
+    public Manager(String name, int phoneNumber, String email) {
+        super(name, phoneNumber, email);
+    }
+
+    public void addHouse(House house) {
+        if (!houses.contains(house)) {
+            houses.add(house);
+        }
+    }
 
 }

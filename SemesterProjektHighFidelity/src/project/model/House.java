@@ -2,13 +2,13 @@ package project.model;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
-
-import java.util.ArrayList;
 
 /**
  * Created 11/13/15
@@ -19,10 +19,10 @@ public class House {
 
     // locationProperty
     private final StringProperty locationProperty = new SimpleStringProperty(this, "location");
-    private ArrayList<Tenant> tenants = new ArrayList<>();
-    private ArrayList<Person> managers = new ArrayList<>();
-    private ArrayList<Notification> notifications = new ArrayList<>();
-    private ArrayList<Message> messages = new ArrayList<>();
+    private ObservableList<Tenant> tenants = FXCollections.observableArrayList();
+    private ObservableList<Person> managers = FXCollections.observableArrayList();
+    private ObservableList<Notification> notifications = FXCollections.observableArrayList();
+    private ObservableList<Message> messages = FXCollections.observableArrayList();
 
     public House(String location) {
         setLocation(location);
@@ -94,19 +94,27 @@ public class House {
         notifications.add(notification);
     }
 
-    public ArrayList<Tenant> getTenants() {
+    public String getLocationProperty() {
+        return locationProperty.get();
+    }
+
+    public StringProperty locationPropertyProperty() {
+        return locationProperty;
+    }
+
+    public ObservableList<Tenant> getTenants() {
         return tenants;
     }
 
-    public ArrayList<Person> getManagers() {
+    public ObservableList<Person> getManagers() {
         return managers;
     }
 
-    public ArrayList<Notification> getNotifications() {
+    public ObservableList<Notification> getNotifications() {
         return notifications;
     }
 
-    public ArrayList<Message> getMessages() {
+    public ObservableList<Message> getMessages() {
         return messages;
     }
 }

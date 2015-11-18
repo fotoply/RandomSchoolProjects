@@ -1,12 +1,12 @@
 package project.model;
 
-import java.util.ArrayList;
-
 /**
  * Created 11/13/15
  *
  * @author Niels Norberg
  */
-public class Janitor extends Person {
-    ArrayList<House> houses = new ArrayList<>();
+public class Janitor extends Manager {
+    public Janitor(String name, int phoneNumber, String email) {
+        super(name, phoneNumber, email);
+    }
 }

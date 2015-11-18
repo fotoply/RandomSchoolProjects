@@ -1,8 +1,8 @@
 package project.model;
 
 import javafx.beans.property.*;
-
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Created 11/13/15
@@ -12,19 +12,30 @@ import java.util.ArrayList;
 public class Message {
     // messageProperty
     private final StringProperty messageProperty = new SimpleStringProperty(this, "message");
-
     // senderProperty
     private final ObjectProperty<Person> senderProperty = new SimpleObjectProperty<>(this, "sender");
     // unreadProperty
     private final BooleanProperty unreadProperty = new SimpleBooleanProperty(this, "unread");
-    ArrayList<Person> receivers = new ArrayList<>();
-    private TYPE type;
-
+    // typeProperty
+    private final ObjectProperty<TYPE> typeProperty = new SimpleObjectProperty<>(this, "type");
+    ObservableList<Person> receivers = FXCollections.observableArrayList();
     public Message(String message, Person sender, TYPE type) {
         setMessage(message);
         setSender(sender);
         setUnread(true);
-        this.type = type;
+        setType(type);
+    }
+
+    public final ObjectProperty<TYPE> typeProperty() {
+        return typeProperty;
+    }
+
+    public final TYPE getType() {
+        return typeProperty.get();
+    }
+
+    public final void setType(TYPE value) {
+        typeProperty.set(value);
     }
 
     public final BooleanProperty unreadProperty() {
