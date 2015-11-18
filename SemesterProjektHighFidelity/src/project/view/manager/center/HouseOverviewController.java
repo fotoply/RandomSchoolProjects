@@ -2,6 +2,7 @@ package project.view.manager.center;
 
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -11,7 +12,10 @@ import project.MainManager;
 import project.model.House;
 import project.model.Tenant;
 import project.view.AnimationHelper;
+import project.view.manager.HouseOverviewLeftMenuController;
 import project.view.manager.OpenCloseAnimated;
+
+import java.io.IOException;
 
 /**
  * Created 11/18/15
@@ -48,6 +52,8 @@ public class HouseOverviewController implements OpenCloseAnimated {
         nameColumn.setCellValueFactory(param -> param.getValue().nameProperty());
         phoneColumn.setCellValueFactory(param -> param.getValue().phoneNumberProperty().asObject());
         emailColumn.setCellValueFactory(param -> param.getValue().mailProperty());
+
+        tenantInfo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> tableClicked(newValue));
     }
 
     @Override
@@ -58,6 +64,21 @@ public class HouseOverviewController implements OpenCloseAnimated {
     @Override
     public Transition closeNode() {
         return AnimationHelper.slideFadeOutToRight(node);
+    }
+
+    public void tableClicked(Tenant tenant) {
+        ((HouseOverviewLeftMenuController) root.getLeftMenu()).selectButton(null);
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonInfo.fxml"));
+        try {
+            Node node = loader.load();
+            ((PersonInfoController) loader.getController()).setRoot(root);
+            ((PersonInfoController) loader.getController()).setPerson(tenant);
+            ((PersonInfoController) loader.getController()).setHouse(house);
+            root.setContent(loader.getController(), node);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void setHouse(House house) {

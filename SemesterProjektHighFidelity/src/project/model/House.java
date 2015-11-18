@@ -19,6 +19,8 @@ public class House {
 
     // locationProperty
     private final StringProperty locationProperty = new SimpleStringProperty(this, "location");
+    // notesProperty
+    private final StringProperty notesProperty = new SimpleStringProperty(this, "notes");
     private ObservableList<Tenant> tenants = FXCollections.observableArrayList();
     private ObservableList<Person> managers = FXCollections.observableArrayList();
     private ObservableList<Notification> notifications = FXCollections.observableArrayList();
@@ -26,6 +28,18 @@ public class House {
 
     public House(String location) {
         setLocation(location);
+    }
+
+    public final StringProperty notesProperty() {
+        return notesProperty;
+    }
+
+    public final String getNotes() {
+        return notesProperty.get();
+    }
+
+    public final void setNotes(String value) {
+        notesProperty.set(value);
     }
 
     public final StringProperty locationProperty() {

@@ -59,6 +59,7 @@ public class OverviewController implements OpenCloseAnimated {
             Node node = loader.load();
             ((HouseOverviewLeftMenuController) loader.getController()).root = root;
             ((HouseOverviewLeftMenuController) loader.getController()).selectButton(((HouseOverviewLeftMenuController) loader.getController()).buttons.get(0));
+            ((HouseOverviewLeftMenuController) loader.getController()).setHouse(house);
             root.setLeftMenu(loader.getController(), node);
         } catch (IOException e) {
             e.printStackTrace();

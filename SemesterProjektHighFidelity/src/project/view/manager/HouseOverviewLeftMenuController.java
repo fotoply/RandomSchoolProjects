@@ -12,7 +12,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import project.MainManager;
+import project.model.House;
 import project.view.AnimationHelper;
+import project.view.manager.center.HouseOverviewController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,18 +27,22 @@ import java.util.ArrayList;
 public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
     @FXML
     public Node node;
-
     public MainManager root;
     public ArrayList<Button> buttons = new ArrayList<>();
     ImageView allPlacesImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house.png")));
     ImageView notificationImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/notification.png")));
     ImageView messageImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/mail.png")));
+    private House house;
     @FXML
     private Button infoButton;
     @FXML
     private Button notificationsButton;
     @FXML
     private Button messagesButton;
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
 
     @FXML
     private void initialize() {
@@ -93,6 +99,8 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("center/HouseOverview.fxml"));
         Node node = loader.load();
         root.setContent(loader.getController(), node);
+        ((HouseOverviewController) loader.getController()).setRoot(root);
+        ((HouseOverviewController) loader.getController()).setHouse(house);
         selectButton(infoButton);
     }
 

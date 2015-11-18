@@ -17,11 +17,25 @@ public class Person {
     private final IntegerProperty phoneNumberProperty = new SimpleIntegerProperty(this, "phoneNumber");
     // mailProperty - Used for storing and getting the email address of a person
     private final StringProperty mailProperty = new SimpleStringProperty(this, "mail");
+    // notesProperty
+    private final StringProperty notesProperty = new SimpleStringProperty(this, "notes");
 
     public Person(String name, int phoneNumber, String email) {
         setName(name);
         setPhoneNumber(phoneNumber);
         setMail(email);
+    }
+
+    public final StringProperty notesProperty() {
+        return notesProperty;
+    }
+
+    public final String getNotes() {
+        return notesProperty.get();
+    }
+
+    public final void setNotes(String value) {
+        notesProperty.set(value);
     }
 
     public final StringProperty nameProperty() {

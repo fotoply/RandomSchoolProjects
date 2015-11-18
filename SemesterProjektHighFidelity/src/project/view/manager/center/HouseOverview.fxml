@@ -42,7 +42,7 @@
       </children>
     </VBox>
     <Separator prefWidth="200.0"
-               style="-fx-border-style: solid; -fx-background-radius: 1; -fx-border-color: 151515; -fx-border-width: 2 0 0 0; -fx-background-color: c9c9c9;"
+               style="-fx-border-style: solid; -fx-background-radius: 1; -fx-border-color: #151515; -fx-border-width: 2 0 0 0; -fx-background-color: #c9c9c9;"
                GridPane.columnSpan="2" GridPane.rowIndex="1"/>
     <TableView fx:id="tenantInfo" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="2">
       <columns>
