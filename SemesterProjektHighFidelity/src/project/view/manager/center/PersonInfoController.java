@@ -45,6 +45,7 @@ public class PersonInfoController implements OpenCloseAnimated {
         textMail.setText(person.getMail());
         textName.setText(person.getName());
         textNumber.setText(person.getPhoneNumber() + "");
+        textAreaNotes.setText(person.getNotes());
     }
 
     public void setRoot(MainManager root) {
