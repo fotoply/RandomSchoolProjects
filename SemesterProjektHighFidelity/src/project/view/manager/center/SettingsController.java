@@ -3,8 +3,6 @@ package project.view.manager.center;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import project.MainManager;
-import project.model.House;
 import project.view.AnimationHelper;
 import project.view.manager.OpenCloseAnimated;
 
@@ -13,10 +11,7 @@ import project.view.manager.OpenCloseAnimated;
  *
  * @author Niels Norberg
  */
-public class HouseOverviewController implements OpenCloseAnimated {
-    public MainManager root;
-    public House house;
-
+public class SettingsController implements OpenCloseAnimated {
     @FXML
     Node node;
 

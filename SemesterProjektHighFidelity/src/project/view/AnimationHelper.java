@@ -13,7 +13,16 @@ import javafx.util.Duration;
  */
 public class AnimationHelper {
 
-    public static void openNodeFromRight(Node node) {
+    public static void initializeSlideFadeFromRight(Node node) {
+        node.setTranslateX(node.prefWidth(-1));
+        node.setOpacity(0);
+    }
+
+    public static void initializeSlideFromRight(Node node) {
+        node.setTranslateX(node.prefWidth(-1));
+    }
+
+    public static void slideFadeInFromRight(Node node) {
         node.setOpacity(0);
         TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), node);
         translateTransition.setToX(0);
@@ -26,7 +35,7 @@ public class AnimationHelper {
         translateTransition.play();
     }
 
-    public static Transition closeNodeToRight(Node node) {
+    public static Transition slideFadeOutToRight(Node node) {
         TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), node);
         translateTransition.setToX(node.prefWidth(-1));
 
@@ -35,6 +44,19 @@ public class AnimationHelper {
         fadeTransition.setToValue(0);
 
         fadeTransition.play();
+        translateTransition.play();
+        return translateTransition;
+    }
+
+    public static void slideInFromLeft(Node node) {
+        TranslateTransition translateTransition = new TranslateTransition(new Duration(250), node);
+        translateTransition.setToX(0);
+        translateTransition.play();
+    }
+
+    public static Transition slideOutToLeft(Node node) {
+        TranslateTransition translateTransition = new TranslateTransition(new Duration(250), node);
+        translateTransition.setToX(-node.prefWidth(-1));
         translateTransition.play();
         return translateTransition;
     }

@@ -40,9 +40,7 @@ public class OverviewController implements OpenCloseAnimated {
 
     @FXML
     private void initialize() {
-        node.setOpacity(0);
-        node.setTranslateX(node.prefWidth(-1));
-
+        AnimationHelper.initializeSlideFadeFromRight(node);
     }
 
     private void tableClicked(House house) {
@@ -60,6 +58,7 @@ public class OverviewController implements OpenCloseAnimated {
         try {
             Node node = loader.load();
             ((HouseOverviewLeftMenuController) loader.getController()).root = root;
+            ((HouseOverviewLeftMenuController) loader.getController()).selectButton(((HouseOverviewLeftMenuController) loader.getController()).buttons.get(0));
             root.setLeftMenu(loader.getController(), node);
         } catch (IOException e) {
             e.printStackTrace();
@@ -84,11 +83,11 @@ public class OverviewController implements OpenCloseAnimated {
 
     @Override
     public void openNode() {
-        AnimationHelper.openNodeFromRight(node);
+        AnimationHelper.slideFadeInFromRight(node);
     }
 
     @Override
     public Transition closeNode() {
-        return AnimationHelper.closeNodeToRight(node);
+        return AnimationHelper.slideFadeOutToRight(node);
     }
 }

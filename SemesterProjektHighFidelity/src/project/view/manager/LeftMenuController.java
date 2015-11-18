@@ -1,6 +1,6 @@
 package project.view.manager;
 
-import javafx.animation.TranslateTransition;
+import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
@@ -11,8 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 import project.MainManager;
+import project.view.AnimationHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -107,17 +107,12 @@ public class LeftMenuController implements OpenCloseAnimated {
 
     @Override
     public void openNode() {
-        TranslateTransition translateTransition = new TranslateTransition(new Duration(250), node);
-        translateTransition.setToX(0);
-        translateTransition.play();
+        AnimationHelper.slideInFromLeft(node);
     }
 
     @Override
-    public TranslateTransition closeNode() {
-        TranslateTransition translateTransition = new TranslateTransition(new Duration(250), node);
-        translateTransition.setToX(-node.prefWidth(-1));
-        translateTransition.play();
-        return translateTransition;
+    public Transition closeNode() {
+        return AnimationHelper.slideOutToLeft(node);
     }
 }
 

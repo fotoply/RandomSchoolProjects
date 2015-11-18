@@ -15,14 +15,19 @@ public class PersonInfoController implements OpenCloseAnimated {
     @FXML
     Node node;
 
+    @FXML
+    private void initialize() {
+        AnimationHelper.initializeSlideFadeFromRight(node);
+    }
+
     @Override
     public void openNode() {
-        AnimationHelper.openNodeFromRight(node);
+        AnimationHelper.slideFadeInFromRight(node);
     }
 
     @Override
     public Transition closeNode() {
-        return AnimationHelper.closeNodeToRight(node);
+        return AnimationHelper.slideFadeOutToRight(node);
     }
 
 }
