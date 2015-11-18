@@ -18,7 +18,6 @@ import javafx.stage.StageStyle;
 import project.model.House;
 import project.model.Message;
 import project.model.Tenant;
-import project.view.manager.LeftMenuController;
 import project.view.manager.OpenCloseAnimated;
 import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
@@ -66,10 +65,10 @@ public class MainManager extends Application {
     private void loadMenus() throws IOException {
         FXMLLoader loader = new FXMLLoader();
 
-        loader.setLocation(getClass().getResource("view/manager/LeftMenu.fxml"));
+        /*loader.setLocation(getClass().getResource("view/manager/LeftMenu.fxml"));
         Node node = loader.load();
         setLeftMenu(loader.getController(), node);
-        ((LeftMenuController) leftMenu).root = this;
+        ((LeftMenuController) leftMenu).root = this;*/
 
         loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml"));

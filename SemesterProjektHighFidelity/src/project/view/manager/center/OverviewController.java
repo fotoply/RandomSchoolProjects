@@ -1,8 +1,6 @@
 package project.view.manager.center;
 
-import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
-import javafx.util.Duration;
 import project.MainManager;
 import project.model.House;
+import project.view.AnimationHelper;
 import project.view.manager.HouseOverviewLeftMenuController;
 import project.view.manager.OpenCloseAnimated;
 
@@ -66,6 +64,8 @@ public class OverviewController implements OpenCloseAnimated {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        root.getUpperMenu().textClicked(null);
     }
 
     public void setCells() {
@@ -84,29 +84,11 @@ public class OverviewController implements OpenCloseAnimated {
 
     @Override
     public void openNode() {
-        node.setOpacity(0);
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), node);
-        translateTransition.setToX(0);
-
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), node);
-        fadeTransition.setFromValue(0);
-        fadeTransition.setToValue(1);
-
-        fadeTransition.play();
-        translateTransition.play();
+        AnimationHelper.openNodeFromRight(node);
     }
 
     @Override
     public Transition closeNode() {
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), node);
-        translateTransition.setToY(node.prefHeight(-1));
-
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(200), node);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-
-        fadeTransition.play();
-        translateTransition.play();
-        return translateTransition;
+        return AnimationHelper.closeNodeToRight(node);
     }
 }

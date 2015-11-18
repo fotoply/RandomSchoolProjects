@@ -1,6 +1,7 @@
 package project.view.manager;
 
 import javafx.animation.Transition;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 
 /**
@@ -10,6 +11,7 @@ import javafx.scene.Node;
  */
 public interface OpenCloseAnimated {
 
+    @FXML
     Node node = null;
 
     void openNode();

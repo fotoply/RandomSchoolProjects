@@ -37,16 +37,19 @@ public class UpperMenuController {
     void initialize() {
     }
 
-    private void textClicked(Text textClicked) {
+    public void textClicked(Text textClicked) {
         for (Text text : textFields) {
             text.setFont(new Font("System", 20));
         }
 
-        textClicked.setFont(new Font("System Bold", 20));
+        if (textClicked != null) {
 
-        if (!textFields.contains(textClicked)) {
-            textFields.add(textClicked);
+            textClicked.setFont(new Font("System Bold", 20));
 
+            if (!textFields.contains(textClicked)) {
+                textFields.add(textClicked);
+
+            }
         }
     }
 
@@ -61,6 +64,7 @@ public class UpperMenuController {
             node = loader.load();
             root.setLeftMenu(loader.getController(), node);
             ((LeftMenuController) loader.getController()).root = root;
+            ((LeftMenuController) loader.getController()).selectButton(((LeftMenuController) loader.getController()).buttons.get(0));
         }
     }
 

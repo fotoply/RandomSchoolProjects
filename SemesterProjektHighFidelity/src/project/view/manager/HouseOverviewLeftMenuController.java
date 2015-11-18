@@ -28,8 +28,8 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
 
     public MainManager root;
     ImageView allPlacesImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house.png")));
-    ImageView notificationImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house_notification.png")));
-    ImageView messageImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/house_mail.png")));
+    ImageView notificationImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/notification.png")));
+    ImageView messageImage = new ImageView(new Image(getClass().getResourceAsStream("/project/res/mail.png")));
     ArrayList<Button> buttons = new ArrayList<>();
 
     @FXML
@@ -62,11 +62,11 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
         infoButton.setScaleX(0.5);
         infoButton.setScaleY(0.5);
 
-        notificationsButton.setScaleX(0.5);
-        notificationsButton.setScaleY(0.5);
+        /*notificationsButton.setScaleX(0.5);
+        notificationsButton.setScaleY(0.5);*/
 
-        messagesButton.setScaleX(0.5);
-        messagesButton.setScaleY(0.5);
+        messagesButton.setScaleX(0.9);
+        messagesButton.setScaleY(0.9);
 
     }
 
