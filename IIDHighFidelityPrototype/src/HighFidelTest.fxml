@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Text?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="380.0" maxWidth="270.0" minHeight="-Infinity" minWidth="270.0"
       xmlns="http://javafx.com/javafx/8.0.40" fx:controller="HighFidelTestController">
-    <AnchorPane maxHeight="380.0" maxWidth="270.0" minWidth="270.0" onMouseClicked="#mouseDragged"
-                onMouseDragged="#mouseDragged" onMousePressed="#mouseDragged" prefHeight="344.0" prefWidth="270.0">
-        <ImageView fx:id="backgoundAreaView" blendMode="SRC_ATOP" fitHeight="380.0" fitWidth="250.0"
-                   pickOnBounds="true" preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="10.0"
-                   AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+    <AnchorPane maxHeight="380.0" maxWidth="270.0" minWidth="270.0" onMouseClicked="#mouseClicked"
+                onMouseDragged="#mouseDragged" onMousePressed="#mouseClicked" prefHeight="344.0" prefWidth="270.0">
+        <ImageView fx:id="backgoundAreaView" blendMode="SRC_ATOP" fitHeight="380.0" fitWidth="250.0" pickOnBounds="true"
+                   preserveRatio="true" smooth="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
+                   AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <Image url="@res/BackgroundSquare.png"/>
         </ImageView>
         <ImageView fx:id="selectionBox" blendMode="SCREEN" fitHeight="40.0" fitWidth="40.0" layoutX="115.0"

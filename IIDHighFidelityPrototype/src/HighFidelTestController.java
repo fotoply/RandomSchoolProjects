@@ -1,3 +1,4 @@
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.effect.BlendMode;
@@ -7,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 
@@ -55,25 +57,59 @@ public class HighFidelTestController {
 
     public void mouseDragged(MouseEvent e) {
         if (e.getX() > 20 && e.getX() < backgoundAreaView.getFitWidth()) {
-            selectionBox.setX(e.getX() - 135);
+            selectionBox.setTranslateX(e.getX() - 135);
         }
         if (e.getY() > 20 && e.getY() < backgoundAreaView.getFitHeight() - 20) {
-            selectionBox.setY(e.getY() - 175);
+            selectionBox.setTranslateY(e.getY() - 175);
         }
         if (e.getX() < 20) {
-            selectionBox.setX(-(backgoundAreaView.getFitWidth() / 2) + 10);
+            selectionBox.setTranslateX(-(backgoundAreaView.getFitWidth() / 2) + 10);
         }
         if (e.getX() > backgoundAreaView.getFitWidth()) {
-            selectionBox.setX(backgoundAreaView.getFitWidth() / 2 - 10);
+            selectionBox.setTranslateX(backgoundAreaView.getFitWidth() / 2 - 10);
         }
         if (e.getY() < 10) {
-            selectionBox.setY(-(backgoundAreaView.getFitHeight() / 2) + 30);
+            selectionBox.setTranslateY(-(backgoundAreaView.getFitHeight() / 2) + 30);
         }
         if (e.getY() > backgoundAreaView.getFitHeight() - 50) {
-            selectionBox.setY((backgoundAreaView.getFitHeight()) / 2 - 30);
+            selectionBox.setTranslateY((backgoundAreaView.getFitHeight()) / 2 - 30);
         }
         //pauseMusic();
         //getMoodNumbers();
+    }
+
+    public void mouseClicked(MouseEvent e) {
+        if (e.isDragDetect()) {
+            return;
+        }
+
+        double x = selectionBox.getX();
+        double y = selectionBox.getY();
+
+        if (e.getX() > 20 && e.getX() < backgoundAreaView.getFitWidth()) {
+            x = (e.getX() - 135);
+        }
+        if (e.getY() > 20 && e.getY() < backgoundAreaView.getFitHeight() - 30) {
+            y = (e.getY() - 175);
+        }
+        if (e.getX() < 20) {
+            x = (-(backgoundAreaView.getFitWidth() / 2) + 10);
+        }
+        if (e.getX() > backgoundAreaView.getFitWidth()) {
+            x = (backgoundAreaView.getFitWidth() / 2 - 10);
+        }
+        if (e.getY() < 25) {
+            y = -(backgoundAreaView.getFitHeight() / 2 - 25);//-(backgoundAreaView.getFitHeight()/2-10);
+        }
+        if (e.getY() > backgoundAreaView.getFitHeight() - 50) {
+            y = ((backgoundAreaView.getFitHeight()) / 2 - 30);
+        }
+
+        TranslateTransition translateTransition = new TranslateTransition(new Duration(75), selectionBox);
+        translateTransition.setToX(x);
+        translateTransition.setToY(y);
+        translateTransition.play();
+
     }
 
     public ArrayList<Double> getMoodNumbers() {
