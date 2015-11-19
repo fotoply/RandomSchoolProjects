@@ -1,5 +1,6 @@
 package project.view.manager;
 
+import com.sun.istack.internal.Nullable;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,7 +69,12 @@ public class LeftMenuController implements OpenCloseAnimated {
 
     }
 
-    public void selectButton(Button b) {
+    /**
+     * Selects a given button, and deselects all others. If the given button is null then all buttons will just be unselected.
+     *
+     * @param b the button to select
+     */
+    public void selectButton(@Nullable Button b) {
         for (Button button : buttons) {
             if (button.getEffect() != null) {
                 button.setEffect(null);

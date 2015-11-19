@@ -4,6 +4,7 @@ package project;/**
  * @author Niels Norberg
  */
 
+import com.sun.istack.internal.Nullable;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -96,6 +97,15 @@ public class MainManager extends Application {
         return leftMenu;
     }
 
+    /**
+     * Sets the content of the left part of the border pane.
+     * When applying this change, it will also attempt to play the close animation for any already existing node in the center.
+     * Will also play the animation for the new node afterwards.
+     * Will delay itself until the close animation is done
+     *
+     * @param controller the controller class for the node. Should not be null unless leftMenu is also null
+     * @param leftMenu   the node with the menu. Should not be null unless controller is also null
+     */
     public void setLeftMenu(OpenCloseAnimated controller, Node leftMenu) {
         if (rootPane.getRootPane().getLeft() != null) {
             getLeftMenu().closeNode().setOnFinished(new EventHandler<ActionEvent>() {
@@ -129,7 +139,15 @@ public class MainManager extends Application {
         return contentController;
     }
 
-    public void setContent(OpenCloseAnimated controller, Node content) {
+    /**
+     * Sets the content of the main border pane.
+     * When applying this change, it will also attempt to play the close animation for any already existing node in the center.
+     * Will also play the animation for the new node.
+     *
+     * @param controller the controller class for the node. Should not be null unless content is also null
+     * @param content    the node with the content. Should not be null unless controller is also null
+     */
+    public void setContent(@Nullable OpenCloseAnimated controller, @Nullable Node content) {
         if (rootPane.getRootPane().getCenter() != null && getContentController() != null) {
             getContentController().closeNode().setOnFinished(new EventHandler<ActionEvent>() {
                 @Override

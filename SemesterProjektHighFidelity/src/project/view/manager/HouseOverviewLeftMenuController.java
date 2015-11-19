@@ -75,6 +75,11 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
 
     }
 
+    /**
+     * Selects a given button, and deselects all others. If the given button is null then all buttons will just be unselected.
+     *
+     * @param b the button to select
+     */
     public void selectButton(Button b) {
         for (Button button : buttons) {
             if (button.getEffect() != null) {

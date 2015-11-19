@@ -1,8 +1,6 @@
 package project.view.manager;
 
 import javafx.animation.Transition;
-import javafx.fxml.FXML;
-import javafx.scene.Node;
 
 /**
  * Created 11/18/15
@@ -11,11 +9,16 @@ import javafx.scene.Node;
  */
 public interface OpenCloseAnimated {
 
-    @FXML
-    Node node = null;
-
+    /**
+     * Is called when the node is opened and should play the opening animation.
+     */
     void openNode();
 
+    /**
+     * Is called when the node is closed and should trigger a closing animation
+     *
+     * @return should return a transition so that the main thread can wait for the animation to finish
+     */
     Transition closeNode();
 
 }
