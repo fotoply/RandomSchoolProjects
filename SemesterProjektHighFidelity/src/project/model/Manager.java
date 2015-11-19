@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
 public class Manager extends Person {
     ObservableList<House> houses = FXCollections.observableArrayList();
 
-    public Manager(String name, int phoneNumber, String email) {
+    public Manager(String name, String phoneNumber, String email) {
         super(name, phoneNumber, email);
     }
 

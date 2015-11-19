@@ -6,7 +6,7 @@ package project.model;
  * @author Niels Norberg
  */
 public class Janitor extends Manager {
-    public Janitor(String name, int phoneNumber, String email) {
+    public Janitor(String name, String phoneNumber, String email) {
         super(name, phoneNumber, email);
     }
 }

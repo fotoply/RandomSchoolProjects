@@ -40,7 +40,7 @@ public class HouseOverviewController implements OpenCloseAnimated {
     private TableColumn<Tenant, String> nameColumn;
 
     @FXML
-    private TableColumn<Tenant, Integer> phoneColumn;
+    private TableColumn<Tenant, String> phoneColumn;
 
     @FXML
     private TableColumn<Tenant, String> emailColumn;
@@ -50,7 +50,7 @@ public class HouseOverviewController implements OpenCloseAnimated {
         AnimationHelper.initializeSlideFadeFromRight(node);
 
         nameColumn.setCellValueFactory(param -> param.getValue().nameProperty());
-        phoneColumn.setCellValueFactory(param -> param.getValue().phoneNumberProperty().asObject());
+        phoneColumn.setCellValueFactory(param -> param.getValue().phoneNumberProperty());
         emailColumn.setCellValueFactory(param -> param.getValue().mailProperty());
 
         tenantInfo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> tableClicked(newValue));

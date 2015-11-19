@@ -12,7 +12,7 @@ public class Tenant extends Person {
     // houseProperty
     private final ObjectProperty<House> houseProperty = new SimpleObjectProperty<>(this, "house");
 
-    public Tenant(String name, int phoneNumber, String email) {
+    public Tenant(String name, String phoneNumber, String email) {
         super(name, phoneNumber, email);
     }
 
