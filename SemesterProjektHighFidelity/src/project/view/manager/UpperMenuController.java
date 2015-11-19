@@ -8,6 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import project.MainManager;
+import project.view.manager.center.MapAllController;
 import project.view.manager.center.OverviewController;
 
 import java.io.IOException;
@@ -60,6 +61,7 @@ public class UpperMenuController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
             Node node = loader.load();
             root.setContent(loader.getController(), node);
+            ((MapAllController) loader.getController()).setRoot(root);
             loader = new FXMLLoader(getClass().getResource("LeftMenu.fxml"));
             node = loader.load();
             root.setLeftMenu(loader.getController(), node);
