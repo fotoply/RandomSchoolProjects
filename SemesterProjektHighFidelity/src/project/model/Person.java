@@ -1,7 +1,5 @@
 package project.model;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -14,13 +12,13 @@ public class Person {
     // nameProperty - Used for storing and getting the name
     private final StringProperty nameProperty = new SimpleStringProperty(this, "name");
     // phoneNumberProperty - Used for storing and getting the phone number
-    private final IntegerProperty phoneNumberProperty = new SimpleIntegerProperty(this, "phoneNumber");
-    // mailProperty - Used for storing and getting the email address of a person
     private final StringProperty mailProperty = new SimpleStringProperty(this, "mail");
     // notesProperty
     private final StringProperty notesProperty = new SimpleStringProperty(this, "notes");
+    // phoneNumberProperty
+    private final StringProperty phoneNumberProperty = new SimpleStringProperty(this, "phoneNumber");
 
-    public Person(String name, int phoneNumber, String email) {
+    public Person(String name, String phoneNumber, String email) {
         setName(name);
         setPhoneNumber(phoneNumber);
         setMail(email);
@@ -50,17 +48,18 @@ public class Person {
         nameProperty.set(value);
     }
 
-    public final IntegerProperty phoneNumberProperty() {
+    public final StringProperty phoneNumberProperty() {
         return phoneNumberProperty;
     }
 
-    public final int getPhoneNumber() {
+    public final String getPhoneNumber() {
         return phoneNumberProperty.get();
     }
 
-    public final void setPhoneNumber(int value) {
+    public final void setPhoneNumber(String value) {
         phoneNumberProperty.set(value);
     }
+
 
     public final StringProperty mailProperty() {
         return mailProperty;

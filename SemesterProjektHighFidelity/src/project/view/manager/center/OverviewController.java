@@ -40,6 +40,12 @@ public class OverviewController implements OpenCloseAnimated {
 
     @FXML
     private void initialize() {
+        addressColumn.setCellValueFactory(param -> param.getValue().locationProperty());
+        messageColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMessageIcon()));
+        notificationColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getNotificationIcon()));
+
+        tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> tableClicked(newValue));
+
         AnimationHelper.initializeSlideFadeFromRight(node);
     }
 
@@ -66,14 +72,6 @@ public class OverviewController implements OpenCloseAnimated {
         }
 
         root.getUpperMenu().textClicked(null);
-    }
-
-    public void setCells() {
-        addressColumn.setCellValueFactory(param -> param.getValue().locationProperty());
-        messageColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMessageIcon()));
-        notificationColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getNotificationIcon()));
-
-        tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> tableClicked(newValue));
     }
 
     public void setRoot(MainManager root) {

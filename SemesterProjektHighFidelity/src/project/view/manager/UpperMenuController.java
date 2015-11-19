@@ -77,7 +77,6 @@ public class UpperMenuController {
             Node node = loader.load();
             root.setContent(loader.getController(), node);
             ((OverviewController) loader.getController()).setRoot(root);
-            ((OverviewController) loader.getController()).setCells();
         }
     }
 
