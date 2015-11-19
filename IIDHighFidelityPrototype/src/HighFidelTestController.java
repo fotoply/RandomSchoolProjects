@@ -99,7 +99,7 @@ public class HighFidelTestController {
             x = (backgoundAreaView.getFitWidth() / 2 - 10);
         }
         if (e.getY() < 25) {
-            y = -(backgoundAreaView.getFitHeight() / 2 - 25);//-(backgoundAreaView.getFitHeight()/2-10);
+            y = -(backgoundAreaView.getFitHeight() / 2 - 25);
         }
         if (e.getY() > backgoundAreaView.getFitHeight() - 50) {
             y = ((backgoundAreaView.getFitHeight()) / 2 - 30);
