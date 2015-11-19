@@ -114,8 +114,8 @@ public class HighFidelTestController {
 
     public ArrayList<Double> getMoodNumbers() {
         ArrayList<Double> mood = new ArrayList<>();
-        mood.add((selectionBox.getX()) / 100);
-        mood.add(((selectionBox.getY()) * -1) / 100);
+        mood.add((selectionBox.getTranslateX()) / 100);
+        mood.add(((selectionBox.getTranslateY()) * -1) / 100);
         //System.out.println(Arrays.toString(mood.toArray()));
         return mood;
     }
@@ -123,6 +123,8 @@ public class HighFidelTestController {
     public String getMoodAndSong() {
         String result;
         ArrayList<Double> mood = getMoodNumbers();
+
+        System.out.println(mood);
 
 
         if (mood.get(0) < -0.5) {
@@ -166,7 +168,6 @@ public class HighFidelTestController {
                 result = "Very happy upbeat";
             }
         }
-
 
         return result;
     }
