@@ -19,9 +19,11 @@ import javafx.stage.StageStyle;
 import project.model.House;
 import project.model.Message;
 import project.model.Tenant;
+import project.view.manager.LeftMenuController;
 import project.view.manager.OpenCloseAnimated;
 import project.view.manager.RootPaneController;
 import project.view.manager.UpperMenuController;
+import project.view.manager.center.MapAllController;
 
 import java.io.IOException;
 
@@ -64,6 +66,7 @@ public class MainManager extends Application {
         houses.add(tempHouse);
         houses.add(new House("Oluf Bagers Gade 2"));
         houses.add(new House("Nyborgvej 20"));
+        houses.add(new House("rantzausmindevej 130"));
     }
 
     private void loadMenus() throws IOException {
@@ -169,5 +172,18 @@ public class MainManager extends Application {
                 controller.openNode();
             }
         }
+    }
+
+    public void openMap() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/center/MapAll.fxml"));
+        Node node = loader.load();
+        setContent(loader.getController(), node);
+        ((MapAllController) loader.getController()).setRoot(this);
+        loader = new FXMLLoader(getClass().getResource("view/manager/LeftMenu.fxml"));
+        node = loader.load();
+        setLeftMenu(loader.getController(), node);
+        ((LeftMenuController) loader.getController()).root = this;
+        ((LeftMenuController) loader.getController()).selectButton(((LeftMenuController) loader.getController()).getButtons().get(0));
+
     }
 }

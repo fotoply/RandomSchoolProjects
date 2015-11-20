@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 /**
  * Created 11/18/15
@@ -38,6 +39,9 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
 
     GoogleMapView mapView;
     GoogleMap map;
+
+    ArrayList<Marker> markers = new ArrayList<>();
+    ArrayList<LatLong> positions = new ArrayList<>();
 
     MainManager root;
     @FXML
@@ -83,10 +87,12 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
         Marker tempMarker = new Marker(markerOptions);
         try {
             tempMarker.setPosition(getLatLongPositions(house.getLocation()));
+            positions.add(getLatLongPositions(house.getLocation()));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        markers.add(tempMarker);
         map.addMarker(tempMarker);
         map.addUIEventHandler(tempMarker, UIEventType.click, new UIEventHandler() {
             @Override
@@ -123,12 +129,17 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     @Override
     public void mapInitialized() {
         MapOptions mapOptions = new MapOptions();
-        mapOptions.center(new LatLong(56.1351841, 8.1906375)).zoom(7).overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
+        mapOptions.overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
         map = mapView.createMap(mapOptions);
+
+        //.center(new LatLong(56.1351841, 8.1906375)).zoom(7)
 
         for (House house : root.getHouses()) {
             createMarkerFromHouse(map, house);
         }
+
+        map.fitBounds(getBoundsForMarkers());
+        System.out.println(getBoundsForMarkers());
     }
 
     @FXML
@@ -147,6 +158,30 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     @Override
     public Transition closeNode() {
         return AnimationHelper.slideFadeOutToRight(node);
+    }
+
+    public LatLongBounds getBoundsForMarkers() {
+        double low = 999999;
+        double right = -999999;
+        double left = 999999;
+        double high = -999999;
+
+        for (int i = 0; i < positions.size(); i++) {
+            if (positions.get(i).getLatitude() < low) {
+                low = positions.get(i).getLatitude();
+            }
+            if (positions.get(i).getLatitude() > high) {
+                high = positions.get(i).getLatitude();
+            }
+            if (positions.get(i).getLongitude() < left) {
+                left = positions.get(i).getLongitude();
+            }
+            if (positions.get(i).getLongitude() > right) {
+                right = positions.get(i).getLongitude();
+            }
+        }
+
+        return new LatLongBounds(new LatLong(low, left), new LatLong(high, right));
     }
 }
 

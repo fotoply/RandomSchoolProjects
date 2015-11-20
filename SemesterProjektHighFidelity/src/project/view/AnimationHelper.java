@@ -29,7 +29,7 @@ public class AnimationHelper {
      * Should be called in the initialize() function.
      * @param node the node to initialize
      */
-    public static void initializeSlideFromRight(Node node) {
+    public static void initializeSlideFromLeft(Node node) {
         node.setTranslateX(node.prefWidth(-1));
     }
 
@@ -58,10 +58,10 @@ public class AnimationHelper {
      * @return the transition object for the slide animation
      */
     public static Transition slideFadeOutToRight(Node node) {
-        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(300), node);
+        TranslateTransition translateTransition = new TranslateTransition(Duration.millis(150), node);
         translateTransition.setToX(node.prefWidth(-1));
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(300), node);
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(150), node);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
 

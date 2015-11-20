@@ -42,7 +42,7 @@
                         <Font size="20.0"/>
                     </font>
                 </Text>
-                <TextArea fx:id="textAreaNotes" onKeyTyped="#textChanged" prefHeight="109.0" prefWidth="590.0"
+                <TextArea fx:id="textAreaNotes" onKeyReleased="#textChanged" prefHeight="109.0" prefWidth="590.0"
                           style="-fx-text-box-border: transparent; -fx-background-color: #e3e1e2; -fx-background-color: #e3e1e2;"
                           GridPane.rowIndex="1"/>
                 <Text fx:id="textInfoSaved" opacity="0.0" strokeType="OUTSIDE" strokeWidth="0.0"
@@ -88,20 +88,20 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
             </rowConstraints>
             <children>
-                <TextField fx:id="textName" maxHeight="45.0" onKeyTyped="#textChanged"
+                <TextField fx:id="textName" maxHeight="45.0" onKeyReleased="#textChanged"
                            style="-fx-background-color: #e3e1e2; -fx-text-border-style: transparent;">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </TextField>
-                <TextField fx:id="textNumber" maxHeight="45.0" onKeyTyped="#textChanged"
+                <TextField fx:id="textNumber" maxHeight="45.0" onKeyReleased="#textChanged"
                            style="-fx-background-color: #e3e1e2; -fx-text-border-style: transparent;"
                            GridPane.rowIndex="1">
                     <font>
                         <Font size="20.0"/>
                     </font>
                 </TextField>
-                <TextField fx:id="textMail" maxHeight="45.0" onKeyTyped="#textChanged"
+                <TextField fx:id="textMail" maxHeight="45.0" onKeyReleased="#textChanged"
                            style="-fx-background-color: #e3e1e2; -fx-text-border-style: transparent;"
                            GridPane.rowIndex="2">
                     <font>

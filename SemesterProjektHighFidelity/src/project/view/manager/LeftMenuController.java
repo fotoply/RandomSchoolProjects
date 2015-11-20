@@ -3,7 +3,6 @@ package project.view.manager;
 import com.sun.istack.internal.Nullable;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -14,7 +13,6 @@ import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import project.MainManager;
 import project.view.AnimationHelper;
-import project.view.manager.center.MapAllController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -96,10 +94,10 @@ public class LeftMenuController implements OpenCloseAnimated {
 
     @FXML
     private void allPlacesClicked() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
         Node node = loader.load();
         ((MapAllController) loader.getController()).setRoot(root);
-        root.setContent(loader.getController(), node);
+        root.setContent(loader.getController(), node);*/
         selectButton(allPlacesButton);
     }
 
@@ -121,6 +119,10 @@ public class LeftMenuController implements OpenCloseAnimated {
     @Override
     public Transition closeNode() {
         return AnimationHelper.slideOutToLeft(node);
+    }
+
+    public ArrayList<Button> getButtons() {
+        return buttons;
     }
 }
 
