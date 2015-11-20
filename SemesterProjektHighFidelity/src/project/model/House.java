@@ -1,5 +1,7 @@
 package project.model;
 
+import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.lynden.gmapsfx.javascript.object.Marker;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
@@ -25,6 +27,8 @@ public class House {
     private ObservableList<Person> managers = FXCollections.observableArrayList();
     private ObservableList<Notification> notifications = FXCollections.observableArrayList();
     private ObservableList<Message> messages = FXCollections.observableArrayList();
+    private LatLong position = null;
+    private Marker marker = null;
 
     public House(String location) {
         setLocation(location);
@@ -130,5 +134,21 @@ public class House {
 
     public ObservableList<Message> getMessages() {
         return messages;
+    }
+
+    public LatLong getPosition() {
+        return position;
+    }
+
+    public void setPosition(LatLong position) {
+        this.position = position;
+    }
+
+    public Marker getMarker() {
+        return marker;
+    }
+
+    public void setMarker(Marker marker) {
+        this.marker = marker;
     }
 }

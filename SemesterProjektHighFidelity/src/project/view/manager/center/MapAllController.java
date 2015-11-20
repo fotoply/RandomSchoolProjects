@@ -29,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 /**
  * Created 11/18/15
@@ -41,7 +42,6 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     GoogleMap map;
 
     ArrayList<Marker> markers = new ArrayList<>();
-    ArrayList<LatLong> positions = new ArrayList<>();
 
     MainManager root;
     @FXML
@@ -86,11 +86,16 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
 
         Marker tempMarker = new Marker(markerOptions);
         try {
-            tempMarker.setPosition(getLatLongPositions(house.getLocation()));
-            positions.add(getLatLongPositions(house.getLocation()));
+            /*if (house.getPosition() != null) {
+                tempMarker.setPosition(house.getPosition());
+            } else {*/
+            house.setPosition(getLatLongPositions(house.getLocation()));
+            tempMarker.setPosition(house.getPosition());
+            //}
         } catch (Exception e) {
             e.printStackTrace();
         }
+        house.setMarker(tempMarker);
 
         markers.add(tempMarker);
         map.addMarker(tempMarker);
@@ -157,6 +162,11 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
 
     @Override
     public Transition closeNode() {
+        for (Marker marker : markers) {
+            map.removeMarker(marker);
+        }
+        map = null;
+
         return AnimationHelper.slideFadeOutToRight(node);
     }
 
@@ -165,6 +175,8 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
         double right = -999999;
         double left = 999999;
         double high = -999999;
+
+        ArrayList<LatLong> positions = root.getHouses().stream().map(House::getPosition).collect(Collectors.toCollection(ArrayList::new));
 
         for (int i = 0; i < positions.size(); i++) {
             if (positions.get(i).getLatitude() < low) {
