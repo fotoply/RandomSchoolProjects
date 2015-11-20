@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderPane;
 import netscape.javascript.JSObject;
 import org.w3c.dom.Document;
 import project.MainManager;
+import project.model.House;
 import project.view.AnimationHelper;
 import project.view.manager.HouseOverviewLeftMenuController;
 import project.view.manager.OpenCloseAnimated;
@@ -75,33 +76,27 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
         this.root = root;
     }
 
-    @Override
-    public void mapInitialized() {
-        MapOptions mapOptions = new MapOptions();
-        mapOptions.center(new LatLong(56.1351841, 8.1906375)).zoom(4).overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
-
-
-        map = mapView.createMap(mapOptions);
-
+    public void createMarkerFromHouse(GoogleMap map, House house) {
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.title("House 1");
-        Marker testMarker = new Marker(markerOptions);
+        markerOptions.title(house.getLocation());
+
+        Marker tempMarker = new Marker(markerOptions);
         try {
-            testMarker.setPosition(getLatLongPositions("Nr. Lyndelsevej 2, Odense"));
+            tempMarker.setPosition(getLatLongPositions(house.getLocation()));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        map.addMarker(testMarker);
-        map.addUIEventHandler(testMarker, UIEventType.click, new UIEventHandler() {
+
+        map.addMarker(tempMarker);
+        map.addUIEventHandler(tempMarker, UIEventType.click, new UIEventHandler() {
             @Override
             public void handle(JSObject jsObject) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("HouseOverview.fxml"));
                 try {
                     Node node = loader.load();
                     HouseOverviewController controller = loader.getController();
-
                     controller.setRoot(root);
-                    controller.setHouse(root.getHouses().get(0));
+                    controller.setHouse(house);
 
                     root.setContent(controller, node);
                 } catch (IOException e) {
@@ -113,7 +108,7 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
                     Node node = loader.load();
                     ((HouseOverviewLeftMenuController) loader.getController()).root = root;
                     ((HouseOverviewLeftMenuController) loader.getController()).selectButton(((HouseOverviewLeftMenuController) loader.getController()).buttons.get(0));
-                    ((HouseOverviewLeftMenuController) loader.getController()).setHouse(root.getHouses().get(0));
+                    ((HouseOverviewLeftMenuController) loader.getController()).setHouse(house);
                     root.setLeftMenu(loader.getController(), node);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -122,6 +117,20 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
                 root.getUpperMenu().textClicked(null);
             }
         });
+
+    }
+
+    @Override
+    public void mapInitialized() {
+        MapOptions mapOptions = new MapOptions();
+        mapOptions.center(new LatLong(56.1351841, 8.1906375)).zoom(7).overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
+
+
+        map = mapView.createMap(mapOptions);
+
+        for (House house : root.getHouses()) {
+            createMarkerFromHouse(map, house);
+        }
     }
 
     @FXML

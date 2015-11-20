@@ -55,15 +55,15 @@ public class MainManager extends Application {
         primaryStage.show();
         loadMenus();
 
-        House tempHouse = new House("Hejlevej 11");
+        House tempHouse = new House("Campusvej 55");
         Tenant tenant = new Tenant("Kaj", "10203040", "Ost@ost.ost");
-        tenant.setNotes("Doesn't even clean his room. \n Very bad at responding to ANYTHING");
+        tenant.setNotes("Ved ikke engang hvordan han bor her, det et universitet");
         tempHouse.addPerson(tenant);
         tempHouse.addMessage(new Message("Hallo", tenant, Message.TYPE.DUTY));
 
         houses.add(tempHouse);
-        houses.add(new House("Lalaladada vej 11"));
-        houses.add(new House("Odensevej ost"));
+        houses.add(new House("Oluf Bagers Gade 2"));
+        houses.add(new House("Nyborgvej 20"));
     }
 
     private void loadMenus() throws IOException {
