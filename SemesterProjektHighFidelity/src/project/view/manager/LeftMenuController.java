@@ -14,6 +14,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import project.MainManager;
 import project.view.AnimationHelper;
+import project.view.manager.center.MapAllController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -97,6 +98,7 @@ public class LeftMenuController implements OpenCloseAnimated {
     private void allPlacesClicked() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
         Node node = loader.load();
+        ((MapAllController) loader.getController()).setRoot(root);
         root.setContent(loader.getController(), node);
         selectButton(allPlacesButton);
     }

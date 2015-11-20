@@ -45,7 +45,7 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
 
     public static LatLong getLatLongPositions(String address) throws Exception // From https://stackoverflow.com/questions/18455394/java-function-that-accepts-address-and-returns-longitude-and-latitude-coordinate
     {
-        int responseCode = 0;
+        int responseCode;
         String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
         System.out.println("URL : " + api);
         URL url = new URL(api);
@@ -124,8 +124,6 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     public void mapInitialized() {
         MapOptions mapOptions = new MapOptions();
         mapOptions.center(new LatLong(56.1351841, 8.1906375)).zoom(7).overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
-
-
         map = mapView.createMap(mapOptions);
 
         for (House house : root.getHouses()) {
