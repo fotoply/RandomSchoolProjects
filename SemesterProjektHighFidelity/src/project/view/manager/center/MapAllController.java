@@ -39,7 +39,6 @@ import java.util.stream.Collectors;
 public class MapAllController implements OpenCloseAnimated, MapComponentInitializedListener {
 
     GoogleMapView mapView;
-    GoogleMap map;
 
     ArrayList<Marker> markers = new ArrayList<>();
 
@@ -47,7 +46,7 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     @FXML
     Node node;
 
-    public static LatLong getLatLongPositions(String address) throws Exception // From https://stackoverflow.com/questions/18455394/java-function-that-accepts-address-and-returns-longitude-and-latitude-coordinate
+    public static LatLong geolocateHouse(String address) throws Exception // From https://stackoverflow.com/questions/18455394/java-function-that-accepts-address-and-returns-longitude-and-latitude-coordinate
     {
         int responseCode;
         String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
@@ -82,21 +81,22 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
 
     public void createMarkerFromHouse(GoogleMap map, House house) {
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.title(house.getLocation());
+        markerOptions.title(house.getAddress());
 
         Marker tempMarker = new Marker(markerOptions);
         try {
             /*if (house.getPosition() != null) {
+                System.out.println(house.getPosition());
                 tempMarker.setPosition(house.getPosition());
             } else {*/
-            house.setPosition(getLatLongPositions(house.getLocation()));
+            house.setPosition(geolocateHouse(house.getAddress()));
             tempMarker.setPosition(house.getPosition());
+            System.out.println(house.getPosition());
             //}
         } catch (Exception e) {
             e.printStackTrace();
         }
         house.setMarker(tempMarker);
-
         markers.add(tempMarker);
         map.addMarker(tempMarker);
         map.addUIEventHandler(tempMarker, UIEventType.click, new UIEventHandler() {
@@ -135,15 +135,15 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     public void mapInitialized() {
         MapOptions mapOptions = new MapOptions();
         mapOptions.overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
-        map = mapView.createMap(mapOptions);
+        root.setMap(mapView.createMap(mapOptions));
 
         //.center(new LatLong(56.1351841, 8.1906375)).zoom(7)
 
         for (House house : root.getHouses()) {
-            createMarkerFromHouse(map, house);
+            createMarkerFromHouse(root.getMap(), house);
         }
 
-        map.fitBounds(getBoundsForMarkers());
+        root.getMap().fitBounds(getBoundsForMarkers());
         System.out.println(getBoundsForMarkers());
     }
 
@@ -163,9 +163,12 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     @Override
     public Transition closeNode() {
         for (Marker marker : markers) {
-            map.removeMarker(marker);
+            root.getMap().removeMarker(marker);
         }
-        map = null;
+
+        for (House house : root.getHouses()) {
+            house.setMarker(null);
+        }
 
         return AnimationHelper.slideFadeOutToRight(node);
     }

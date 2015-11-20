@@ -50,7 +50,7 @@ public class House {
         return locationProperty;
     }
 
-    public final String getLocation() {
+    public final String getAddress() {
         return locationProperty.get();
     }
 

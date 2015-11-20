@@ -4,6 +4,7 @@ package project;/**
  * @author Niels Norberg
  */
 
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
 import com.sun.istack.internal.Nullable;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -29,16 +30,24 @@ import java.io.IOException;
 
 public class MainManager extends Application {
 
+    private GoogleMap map;
     private Stage primaryStage;
     private RootPaneController rootPane;
     private OpenCloseAnimated leftMenu;
     private UpperMenuController upperMenu;
     private OpenCloseAnimated contentController;
-
     private ObservableList<House> houses = FXCollections.observableArrayList();
 
     public static void main(String[] args) {
         launch(args);
+    }
+
+    public GoogleMap getMap() {
+        return map;
+    }
+
+    public void setMap(GoogleMap map) {
+        this.map = map;
     }
 
     public ObservableList<House> getHouses() {

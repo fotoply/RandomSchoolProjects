@@ -84,7 +84,7 @@ public class HouseOverviewController implements OpenCloseAnimated {
     public void setHouse(House house) {
         this.house = house;
         tenantInfo.setItems(this.house.getTenants());
-        textAddress.setText(house.getLocation());
+        textAddress.setText(house.getAddress());
         textAreaNotes.setText(house.getNotes());
     }
 

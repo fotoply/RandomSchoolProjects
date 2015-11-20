@@ -48,7 +48,7 @@ public class PersonInfoController implements OpenCloseAnimated {
      */
     public void setHouse(House house) {
         this.house = house;
-        textAddress.setText(house.getLocation());
+        textAddress.setText(house.getAddress());
     }
 
     /**
