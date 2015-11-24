@@ -5,8 +5,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Orientation;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import project.model.Message;
@@ -46,6 +48,7 @@ public class MessageOverviewController implements OpenCloseAnimated {
 
         VBox pane = new VBox();
         pane.setPrefWidth(590);
+        pane.setSpacing(0);
         //pane.setBackground(new Background(new BackgroundFill(Paint.valueOf("Black"), CornerRadii.EMPTY, Insets.EMPTY)));
 
         for (Message message : messages) {
@@ -54,6 +57,9 @@ public class MessageOverviewController implements OpenCloseAnimated {
             //subPane.setMinWidth(600);
             pane.getChildren().add(subPane);
             ((MessageContainerController) loader.getController()).init(message);
+            if (messages.indexOf(message) != messages.size() - 1) {
+                pane.getChildren().add(new Separator(Orientation.HORIZONTAL));
+            }
         }
 
         ((ScrollPane) node).setContent(pane);
