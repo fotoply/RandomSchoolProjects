@@ -80,9 +80,10 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     }
 
     public void createMarkerFromHouse(GoogleMap map, House house) {
+
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.title(house.getAddress());
-
+        markerOptions.animation(Animation.DROP);
         Marker tempMarker = new Marker(markerOptions);
         try {
             /*if (house.getPosition() != null) {
