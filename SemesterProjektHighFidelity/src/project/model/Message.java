@@ -18,13 +18,28 @@ public class Message {
     private final BooleanProperty unreadProperty = new SimpleBooleanProperty(this, "unread");
     // typeProperty
     private final ObjectProperty<TYPE> typeProperty = new SimpleObjectProperty<>(this, "type");
+    // titleProperty
+    private final StringProperty titleProperty = new SimpleStringProperty(this, "title");
     ObservableList<Person> receivers = FXCollections.observableArrayList();
 
-    public Message(String message, Person sender, TYPE type) {
+    public Message(String message, String title, Person sender, TYPE type) {
         setMessage(message);
+        setTitle(title);
         setSender(sender);
         setUnread(true);
         setType(type);
+    }
+
+    public final StringProperty titleProperty() {
+        return titleProperty;
+    }
+
+    public final String getTitle() {
+        return titleProperty.get();
+    }
+
+    public final void setTitle(String value) {
+        titleProperty.set(value);
     }
 
     public final ObjectProperty<TYPE> typeProperty() {
