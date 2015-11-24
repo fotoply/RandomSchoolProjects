@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="200.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.40"
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="200.0"
+            minWidth="450.0" xmlns="http://javafx.com/javafx/8.0.40"
             fx:controller="project.view.manager.center.MessageContainerController">
     <children>
-        <GridPane layoutX="53.0" layoutY="37.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
-                  AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <GridPane layoutX="53.0" layoutY="37.0" minWidth="600.0" AnchorPane.bottomAnchor="10.0"
+                  AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
@@ -23,8 +22,9 @@
                 <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" text="TITLE"
                       wrappingWidth="224.7294921875"/>
                 <Text fx:id="senderNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="SENDER NAME"
-                      textAlignment="RIGHT" wrappingWidth="212.7294921875" GridPane.columnIndex="1"/>
-                <TextArea fx:id="messageArea" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2"
+                      textAlignment="RIGHT" wrappingWidth="212.7294921875" GridPane.columnIndex="1"
+                      GridPane.halignment="RIGHT"/>
+                <TextArea fx:id="messageArea" prefHeight="200.0" prefWidth="590.0" GridPane.columnSpan="2"
                           GridPane.rowIndex="1"/>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Vedhæftede billeder" underline="true"
                       GridPane.rowIndex="2"/>

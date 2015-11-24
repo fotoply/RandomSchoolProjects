@@ -70,7 +70,9 @@ public class MainManager extends Application {
         Tenant tenant = new Tenant("Kaj", "10203040", "Ost@ost.ost");
         tenant.setNotes("Ved ikke engang hvordan han bor her, det et universitet");
         tempHouse.addPerson(tenant);
-        tempHouse.addMessage(new Message("Hallo", tenant, Message.TYPE.DUTY));
+        tempHouse.addMessage(new Message("Hej, synes bare lige i skulle vide at kælderen står under 3 meter vand", "Hallo", tenant, Message.TYPE.DUTY));
+        tempHouse.addMessage(new Message("Så øhm, kælderen er altså stadig under vand..\nDet er nu omkring 4.5 meter og den nærliggende vej ser også våd ud.", "I må godt skynde jer", tenant, Message.TYPE.DUTY));
+
 
         houses.add(tempHouse);
         houses.add(new House("Oluf Bagers Gade 2"));
