@@ -1,8 +1,11 @@
 package project.view.manager.center;
 
 import javafx.animation.Transition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import project.model.Message;
 import project.view.AnimationHelper;
 import project.view.manager.OpenCloseAnimated;
 
@@ -15,6 +18,7 @@ public class MessageOverviewController implements OpenCloseAnimated {
 
     @FXML
     Node node;
+    private ObservableList<Message> messages = FXCollections.observableArrayList();
 
     @FXML
     private void initialize() {
@@ -29,5 +33,9 @@ public class MessageOverviewController implements OpenCloseAnimated {
     @Override
     public Transition closeNode() {
         return AnimationHelper.slideFadeOutToRight(node);
+    }
+
+    public void setMessages(ObservableList<Message> messages) {
+        this.messages = messages;
     }
 }

@@ -9,13 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import project.MainManager;
 import project.model.House;
 import project.view.AnimationHelper;
 import project.view.manager.center.HouseOverviewController;
+import project.view.manager.center.MessageOverviewController;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -116,9 +116,12 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
     }
 
     @FXML
-    private void messagesClicked() {
+    private void messagesClicked() throws IOException {
         selectButton(messagesButton);
-        AnchorPane center = new AnchorPane();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MessageOverview.fxml"));
+        Node node = loader.load();
+        root.setContent(loader.getController(), node);
+        ((MessageOverviewController) loader.getController()).setMessages(house.getMessages());
     }
 
     @Override

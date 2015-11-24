@@ -1,4 +1,4 @@
-package project.view;
+package project.view.manager.center;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -11,7 +11,7 @@ import project.model.Message;
  *
  * @author Niels Norberg
  */
-public class MessageContainer extends AnchorPane {
+public class MessageContainerController extends AnchorPane {
 
     @FXML
     private Text titleText;
