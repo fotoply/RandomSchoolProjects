@@ -15,13 +15,13 @@
                 <Image url="@../../res/background.png"/>
             </image>
         </ImageView>
-        <ImageView fx:id="iconImage" cache="true" cacheHint="QUALITY" fitWidth="120.0" layoutX="10.0" layoutY="10.0"
-                   pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="iconImage" cache="true" cacheHint="QUALITY" fitHeight="120.0" fitWidth="120.0" layoutX="10.0"
+                   layoutY="10.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../res/myAppartment_logo.png"/>
             </image>
             <viewport>
-                <Rectangle2D height="1560.0" width="1580.0"/>
+                <Rectangle2D height="156.0" width="158.0"/>
             </viewport>
         </ImageView>
         <BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
