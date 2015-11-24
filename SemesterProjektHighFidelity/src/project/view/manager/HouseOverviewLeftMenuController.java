@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import project.MainManager;
@@ -117,6 +118,7 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
     @FXML
     private void messagesClicked() {
         selectButton(messagesButton);
+        AnchorPane center = new AnchorPane();
     }
 
     @Override
