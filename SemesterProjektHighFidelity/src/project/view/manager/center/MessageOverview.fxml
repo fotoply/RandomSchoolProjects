@@ -6,7 +6,9 @@
             minWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40"
             fx:controller="project.view.manager.center.MessageOverviewController">
     <children>
-        <ScrollPane fx:id="node" layoutX="182.0" layoutY="60.0" prefHeight="200.0" prefWidth="200.0"
+        <ScrollPane fx:id="node" focusTraversable="false" layoutX="182.0" layoutY="60.0" prefHeight="200.0"
+                    prefWidth="200.0"
+                    style="-fx-border-style: none; -fx-border-radius: 0 0 0 0; -fx-focus-color: transparent;"
                     AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                     AnchorPane.topAnchor="0.0"/>
     </children>
