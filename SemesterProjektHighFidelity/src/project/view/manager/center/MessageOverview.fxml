@@ -8,7 +8,7 @@
     <children>
         <ScrollPane fx:id="node" focusTraversable="false" hbarPolicy="NEVER" layoutX="182.0" layoutY="60.0"
                     prefHeight="200.0" prefWidth="200.0"
-                    style="-fx-border-style: none; -fx-border-radius: 0 0 0 0; -fx-focus-color: transparent;"
+                    style="-fx-border-style: none; -fx-border-radius: 0 0 0 0; -fx-focus-color: transparent; -fx-faint-focus-color: transparent;"
                     AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
                     AnchorPane.topAnchor="0.0"/>
     </children>

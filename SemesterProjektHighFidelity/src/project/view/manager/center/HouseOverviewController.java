@@ -1,6 +1,7 @@
 package project.view.manager.center;
 
 import javafx.animation.Transition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -86,6 +87,13 @@ public class HouseOverviewController implements OpenCloseAnimated {
         tenantInfo.setItems(this.house.getTenants());
         textAddress.setText(house.getAddress());
         textAreaNotes.setText(house.getNotes());
+    }
+
+    @FXML
+    void addTenantClicked(ActionEvent event) {
+        Tenant tenant = new Tenant("Indtast navn", "Indtast telefon nummer", "Indtast email");
+        house.addPerson(tenant);
+        tableClicked(tenant);
     }
 
     public void setRoot(MainManager root) {

@@ -10,14 +10,15 @@
           style="-fx-background-color: #c9c9c9;" xmlns="http://javafx.com/javafx/8.0.40"
           fx:controller="project.view.manager.center.HouseOverviewController">
   <columnConstraints>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="352.0" minWidth="10.0" prefWidth="291.0"/>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="299.0"/>
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="125.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES"/>
     <RowConstraints maxHeight="125.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES"/>
-    <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="159.0" vgrow="SOMETIMES"/>
-    <RowConstraints maxHeight="179.0" minHeight="10.0" prefHeight="163.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="151.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES"/>
+    <RowConstraints maxHeight="179.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES"/>
   </rowConstraints>
   <children>
     <Text fx:id="textAddress" fill="#2d2d2d" strokeType="OUTSIDE" strokeWidth="0.0" text="ADDRESSE"
@@ -26,14 +27,15 @@
         <Font name="System Bold" size="30.0"/>
       </font>
     </Text>
-    <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+    <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="110.0" prefWidth="590.0" GridPane.columnSpan="2"
+          GridPane.rowIndex="4">
       <children>
         <Text fill="#393939" strokeType="OUTSIDE" strokeWidth="0.0" text="Noter:">
           <font>
             <Font size="20.0"/>
           </font>
         </Text>
-        <TextArea fx:id="textAreaNotes" prefHeight="136.0" prefWidth="599.0"
+        <TextArea fx:id="textAreaNotes" prefHeight="85.0" prefWidth="580.0"
                   style="-fx-text-box-border: transparent; -fx-background-color: e3e1e2;">
           <VBox.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
@@ -51,6 +53,8 @@
         <TableColumn fx:id="emailColumn" prefWidth="196.0" text="Email"/>
       </columns>
     </TableView>
+    <Button mnemonicParsing="false" onAction="#addTenantClicked" text="Tilføj lejer" GridPane.columnSpan="2"
+            GridPane.halignment="CENTER" GridPane.rowIndex="3"/>
   </children>
   <padding>
     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
