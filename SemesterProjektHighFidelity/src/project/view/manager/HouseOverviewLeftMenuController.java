@@ -101,7 +101,7 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
     }
 
     @FXML
-    private void infoButtonClicked() throws IOException {
+    public void infoButtonClicked() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("center/HouseOverview.fxml"));
         Node node = loader.load();
         root.setContent(loader.getController(), node);

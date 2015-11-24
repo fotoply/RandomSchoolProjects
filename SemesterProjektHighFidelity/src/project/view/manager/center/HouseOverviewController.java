@@ -54,6 +54,7 @@ public class HouseOverviewController implements OpenCloseAnimated {
         phoneColumn.setCellValueFactory(param -> param.getValue().phoneNumberProperty());
         emailColumn.setCellValueFactory(param -> param.getValue().mailProperty());
 
+        tenantInfo.getSelectionModel().select(-1);
         tenantInfo.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> tableClicked(newValue));
     }
 

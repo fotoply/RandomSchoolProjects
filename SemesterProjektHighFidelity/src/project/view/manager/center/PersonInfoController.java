@@ -2,6 +2,7 @@ package project.view.manager.center;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
@@ -13,7 +14,10 @@ import project.MainManager;
 import project.model.House;
 import project.model.Person;
 import project.view.AnimationHelper;
+import project.view.manager.HouseOverviewLeftMenuController;
 import project.view.manager.OpenCloseAnimated;
+
+import java.io.IOException;
 
 /**
  * Created 11/18/15
@@ -83,6 +87,13 @@ public class PersonInfoController implements OpenCloseAnimated {
         }
 
     }
+
+    @FXML
+    void removeTenantClicked(ActionEvent event) throws IOException {
+        ((HouseOverviewLeftMenuController) root.getLeftMenu()).infoButtonClicked();
+        house.removeTenant(person);
+    }
+
 
     public void setRoot(MainManager root) {
         this.root = root;

@@ -151,4 +151,8 @@ public class House {
     public void setMarker(Marker marker) {
         this.marker = marker;
     }
+
+    public void removeTenant(Person tenant) {
+        tenants.remove(tenant);
+    }
 }
