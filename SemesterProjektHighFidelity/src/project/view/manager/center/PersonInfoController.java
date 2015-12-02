@@ -50,7 +50,7 @@ public class PersonInfoController implements OpenCloseAnimated {
      *
      * @param house the house object
      */
-    public void setHouse(House house) {
+    public void setHouse(House house) { // Sets the house and changes the title text.
         this.house = house;
         textAddress.setText(house.getAddress());
     }
@@ -60,6 +60,7 @@ public class PersonInfoController implements OpenCloseAnimated {
      * @param person the person object
      */
     public void setPerson(Person person) {
+        // Sets the person to display information for and also saves the reference so that information can be propagated back if anything is changed.
         this.person = person;
         textMail.setText(person.getMail());
         textName.setText(person.getName());
@@ -70,6 +71,8 @@ public class PersonInfoController implements OpenCloseAnimated {
     @FXML
     public void textChanged() {
 
+        // Whenever any information is changed, save it back to the person object and show text to the user.
+        // Later on this would instead save it to a server, while currently it is only kept in memory.
         try {
             person.setName(textName.getText());
             person.setPhoneNumber(textNumber.getText());
@@ -90,7 +93,7 @@ public class PersonInfoController implements OpenCloseAnimated {
 
     @FXML
     void removeTenantClicked(ActionEvent event) throws IOException {
-        ((HouseOverviewLeftMenuController) root.getLeftMenu()).infoButtonClicked();
+        ((HouseOverviewLeftMenuController) root.getLeftMenu()).infoButtonClicked(); // Change the selected window in the left menu
         house.removeTenant(person);
     }
 

@@ -37,17 +37,17 @@ public class UpperMenuController {
     void initialize() {
     }
 
-    public void textClicked(Text textClicked) {
+    public void textClicked(Text textClicked) { // Is triggered when any of the text is clicked, in the upper menu
         for (Text text : textFields) {
-            text.setFont(new Font("System", 20));
+            text.setFont(new Font("System", 20)); // Reset all the text to not be bold
         }
 
-        if (textClicked != null) {
+        if (textClicked != null) { // If the text exists which was clicked on
 
-            textClicked.setFont(new Font("System Bold", 20));
+            textClicked.setFont(new Font("System Bold", 20)); // Set it to bold
 
             if (!textFields.contains(textClicked)) {
-                textFields.add(textClicked);
+                textFields.add(textClicked); // IF it does not exist in the list of button texts, add it
 
             }
         }
@@ -55,16 +55,16 @@ public class UpperMenuController {
 
     @FXML
     public void mapClicked() throws IOException {
-        if (!mapText.getFont().getName().contains("Bold")) {
-            textClicked(mapText);
+        if (!mapText.getFont().getName().contains("Bold")) { // IF it is not already selected and therefor bold
+            textClicked(mapText); // Select it
             root.openMap();
         }
     }
 
     @FXML
     public void overviewClicked() throws IOException {
-        if (!overviewText.getFont().getName().contains("Bold")) {
-            textClicked(overviewText);
+        if (!overviewText.getFont().getName().contains("Bold")) { // IF it is not already selected and therefor bold
+            textClicked(overviewText); // Select it and load the correct center thing
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Overview.fxml"));
             root.setLeftMenu(null, null);
             Node node = loader.load();
@@ -75,7 +75,7 @@ public class UpperMenuController {
 
     @FXML
     public void settingsClicked() throws IOException {
-        if (!settingsText.getFont().getName().contains("Bold")) {
+        if (!settingsText.getFont().getName().contains("Bold")) { // Same as the above two
             textClicked(settingsText);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("center/Settings.fxml"));
             root.setLeftMenu(null, null);
@@ -87,7 +87,7 @@ public class UpperMenuController {
     @FXML
     public void logOutClicked() {
         textClicked(logOffText);
-        primaryStage.close();
+        primaryStage.close(); // Close the program. textClicked call is kinda unnecessary except if the program hangs unexpectedly
     }
 
     public void setPrimaryStage(Stage primaryStage) {

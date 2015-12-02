@@ -11,7 +11,7 @@ import javafx.scene.layout.BorderPane;
 public class RootPaneController {
 
     @FXML
-    private BorderPane rootPane;
+    private BorderPane rootPane; // The main root BorderPane. Is used for accessing other parts of the program
 
     @FXML
     public void initialize() {

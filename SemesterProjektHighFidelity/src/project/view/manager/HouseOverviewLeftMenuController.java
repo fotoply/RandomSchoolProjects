@@ -46,7 +46,7 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
     }
 
     @FXML
-    private void initialize() {
+    private void initialize() { // Same initializer as the one in LeftMenuController. Most of this document is almost the same as that actually.
         node.setTranslateX(-node.prefWidth(-1));
 
         buttons.add(infoButton);
@@ -67,9 +67,6 @@ public class HouseOverviewLeftMenuController implements OpenCloseAnimated {
 
         infoButton.setScaleX(0.5);
         infoButton.setScaleY(0.5);
-
-        /*notificationsButton.setScaleX(0.5);
-        notificationsButton.setScaleY(0.5);*/
 
         messagesButton.setScaleX(0.9);
         messagesButton.setScaleY(0.9);

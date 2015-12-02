@@ -40,30 +40,35 @@ public class OverviewController implements OpenCloseAnimated {
 
     @FXML
     private void initialize() {
+
+        //Initializes the cells to format the person they get in in the following way.
+        //For example, for the first one this means that it takes a CellData, where the value is a house object.
+        //Then from that house object it will display the location property, AKA the address.
         addressColumn.setCellValueFactory(param -> param.getValue().locationProperty());
         messageColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getMessageIcon()));
         notificationColumn.setCellValueFactory(param -> new SimpleObjectProperty<>(param.getValue().getNotificationIcon()));
 
+        //Listens for if any of the cells is selected
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> tableClicked(newValue));
 
         AnimationHelper.initializeSlideFadeFromRight(node);
     }
 
-    private void tableClicked(House house) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HouseOverview.fxml"));
+    private void tableClicked(House house) { // When any element in the overview table is clicked, load that specific house
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("HouseOverview.fxml")); // Load the layout
         try {
             Node node = loader.load();
             root.setContent(loader.getController(), node);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ((HouseOverviewController) loader.getController()).setRoot(root);
+        ((HouseOverviewController) loader.getController()).setRoot(root); // Then set some values in the layout controller
         ((HouseOverviewController) loader.getController()).setHouse(house);
 
-        loader = new FXMLLoader(getClass().getResource("/project/view/manager/HouseOverviewLeftMenu.fxml"));
+        loader = new FXMLLoader(getClass().getResource("/project/view/manager/HouseOverviewLeftMenu.fxml")); // Also load the layout for the new left menu
         try {
             Node node = loader.load();
-            ((HouseOverviewLeftMenuController) loader.getController()).root = root;
+            ((HouseOverviewLeftMenuController) loader.getController()).root = root; // And set data for it's controller
             ((HouseOverviewLeftMenuController) loader.getController()).selectButton(((HouseOverviewLeftMenuController) loader.getController()).buttons.get(0));
             ((HouseOverviewLeftMenuController) loader.getController()).setHouse(house);
             root.setLeftMenu(loader.getController(), node);
@@ -71,7 +76,7 @@ public class OverviewController implements OpenCloseAnimated {
             e.printStackTrace();
         }
 
-        root.getUpperMenu().textClicked(null);
+        root.getUpperMenu().textClicked(null); // Reset what text is bold in the upper menu to none.
     }
 
     public void setRoot(MainManager root) {

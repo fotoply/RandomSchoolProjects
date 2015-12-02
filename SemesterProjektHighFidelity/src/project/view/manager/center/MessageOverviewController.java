@@ -26,7 +26,7 @@ public class MessageOverviewController implements OpenCloseAnimated {
 
     @FXML
     Node node;
-    private ObservableList<Message> messages = FXCollections.observableArrayList();
+    private ObservableList<Message> messages = FXCollections.observableArrayList(); // The list of messages to display
 
     @FXML
     private void initialize() {
@@ -49,19 +49,17 @@ public class MessageOverviewController implements OpenCloseAnimated {
         VBox pane = new VBox();
         pane.setPrefWidth(590);
         pane.setSpacing(0);
-        //pane.setBackground(new Background(new BackgroundFill(Paint.valueOf("Black"), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        for (Message message : messages) {
+        for (Message message : messages) { // For each message in the list of messages, constuct a new message container and put it into the container.
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/project/view/manager/center/MessageContainer.fxml"));
             AnchorPane subPane = loader.load();
-            //subPane.setMinWidth(600);
             pane.getChildren().add(subPane);
             ((MessageContainerController) loader.getController()).init(message);
-            if (messages.indexOf(message) != messages.size() - 1) {
+            if (messages.indexOf(message) != messages.size() - 1) { // If this is not the last message add a seperator to the end of it
                 pane.getChildren().add(new Separator(Orientation.HORIZONTAL));
             }
         }
 
-        ((ScrollPane) node).setContent(pane);
+        ((ScrollPane) node).setContent(pane); // Set the content window to contain the VBox with all the messages.
     }
 }

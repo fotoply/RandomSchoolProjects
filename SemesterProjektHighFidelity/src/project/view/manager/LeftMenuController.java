@@ -39,15 +39,15 @@ public class LeftMenuController implements OpenCloseAnimated {
 
     @FXML
     private void initialize() {
-        node.setTranslateX(-node.prefWidth(-1));
+        node.setTranslateX(-node.prefWidth(-1)); // Hides the menu so that it can be animated
 
         buttons.add(allPlacesButton);
         buttons.add(notificationsButton);
-        buttons.add(messagesButton);
+        buttons.add(messagesButton); // Adds all the buttons to the list of buttons
 
         allPlacesButton.setGraphic(allPlacesImage);
         notificationsButton.setGraphic(notificationImage);
-        messagesButton.setGraphic(messageImage);
+        messagesButton.setGraphic(messageImage); // Changes the buttons images to be the correct ones
 
         allPlacesButton.setBackground(Background.EMPTY);
         notificationsButton.setBackground(Background.EMPTY);
@@ -55,13 +55,13 @@ public class LeftMenuController implements OpenCloseAnimated {
 
         allPlacesButton.setPadding(Insets.EMPTY);
         notificationsButton.setPadding(Insets.EMPTY);
-        messagesButton.setPadding(Insets.EMPTY);
+        messagesButton.setPadding(Insets.EMPTY); // Hides the background and unnecessary padding.
 
         allPlacesButton.setScaleX(0.5);
         allPlacesButton.setScaleY(0.5);
 
         notificationsButton.setScaleX(0.5);
-        notificationsButton.setScaleY(0.5);
+        notificationsButton.setScaleY(0.5); // Scales the images to fit better
 
         messagesButton.setScaleX(0.5);
         messagesButton.setScaleY(0.5);
@@ -76,11 +76,11 @@ public class LeftMenuController implements OpenCloseAnimated {
     public void selectButton(@Nullable Button b) {
         for (Button button : buttons) {
             if (button.getEffect() != null) {
-                button.setEffect(null);
+                button.setEffect(null); // Disables the glow effect on all buttons
             }
         }
 
-        if (b != null) {
+        if (b != null) { // IF the selected button is a valid button add glow effect to it
             DropShadow borderGlow = new DropShadow();
             borderGlow.setOffsetY(0f);
             borderGlow.setOffsetX(0f);
@@ -93,11 +93,7 @@ public class LeftMenuController implements OpenCloseAnimated {
     }
 
     @FXML
-    private void allPlacesClicked() throws IOException {
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("center/MapAll.fxml"));
-        Node node = loader.load();
-        ((MapAllController) loader.getController()).setRoot(root);
-        root.setContent(loader.getController(), node);*/
+    private void allPlacesClicked() throws IOException { // When the first button is clicked
         selectButton(allPlacesButton);
     }
 

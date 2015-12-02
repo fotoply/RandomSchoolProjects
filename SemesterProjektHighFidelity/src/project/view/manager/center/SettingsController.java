@@ -11,7 +11,7 @@ import project.view.manager.OpenCloseAnimated;
  *
  * @author Niels Norberg
  */
-public class SettingsController implements OpenCloseAnimated {
+public class SettingsController implements OpenCloseAnimated { // Is just a placeholder with an animation. Animation could be implemented better
     @FXML
     Node node;
 
