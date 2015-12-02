@@ -9,8 +9,6 @@ import com.sun.istack.internal.Nullable;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
@@ -62,10 +60,12 @@ public class MainManager extends Application {
     public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
 
+        // Load the basic parts of the program for displaying the welcome screen.
         loadRoot();
         primaryStage.show();
         loadMenus();
 
+        //region Initialize test data
         House tempHouse = new House("Campusvej 55");
         Tenant tenant = new Tenant("Kaj", "10203040", "Ost@ost.ost");
         tenant.setNotes("Ved ikke engang hvordan han bor her, det et universitet");
@@ -81,18 +81,12 @@ public class MainManager extends Application {
         houses.add(new House("Oluf Bagers Gade 2"));
         houses.add(new House("Nyborgvej 20"));
         houses.add(new House("rantzausmindevej 130"));
+        //endregion
     }
 
     private void loadMenus() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-
-        /*loader.setLocation(getClass().getResource("view/manager/LeftMenu.fxml"));
-        Node node = loader.load();
-        setLeftMenu(loader.getController(), node);
-        ((LeftMenuController) leftMenu).root = this;*/
-
-        loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml"));
+        loader.setLocation(getClass().getResource("view/manager/UpperMenu.fxml")); // Load and set up the layout for the upper menu
         rootPane.getRootPane().setTop(loader.load());
         upperMenu = loader.getController();
         upperMenu.setPrimaryStage(primaryStage);
@@ -102,7 +96,7 @@ public class MainManager extends Application {
 
     private void loadRoot() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("view/manager/RootPane.fxml"));
+        loader.setLocation(getClass().getResource("view/manager/RootPane.fxml")); // Load the root BorderPane
         primaryStage.setScene(new Scene(loader.load()));
         rootPane = loader.getController();
         primaryStage.setResizable(false); // Set to true if resizing is needed for testing
@@ -123,14 +117,11 @@ public class MainManager extends Application {
      * @param controller the controller class for the node. Should not be null unless leftMenu is also null
      * @param leftMenu   the node with the menu. Should not be null unless controller is also null
      */
-    public void setLeftMenu(OpenCloseAnimated controller, Node leftMenu) {
-        if (rootPane.getRootPane().getLeft() != null) {
-            getLeftMenu().closeNode().setOnFinished(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    rootPane.getRootPane().setLeft(null);
-                    setLeftMenu(controller, leftMenu);
-                }
+    public void setLeftMenu(OpenCloseAnimated controller, Node leftMenu) { // Handles open and closing the left menu with animation
+        if (rootPane.getRootPane().getLeft() != null) { // If there is something in the left area already play a close animation for it
+            getLeftMenu().closeNode().setOnFinished(event -> {
+                rootPane.getRootPane().setLeft(null);
+                setLeftMenu(controller, leftMenu);
             });
             return;
         }
@@ -164,15 +155,12 @@ public class MainManager extends Application {
      * @param controller the controller class for the node. Should not be null unless content is also null
      * @param content    the node with the content. Should not be null unless controller is also null
      */
-    public void setContent(@Nullable OpenCloseAnimated controller, @Nullable Node content) {
-        if (rootPane.getRootPane().getCenter() != null && getContentController() != null) {
-            getContentController().closeNode().setOnFinished(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    rootPane.getRootPane().setCenter(null);
-                    contentController = null;
-                    setContent(controller, content);
-                }
+    public void setContent(@Nullable OpenCloseAnimated controller, @Nullable Node content) { // Handles the center with animation
+        if (rootPane.getRootPane().getCenter() != null && getContentController() != null) { // IF there is something in the middle wait for it to finish it's closing animation
+            getContentController().closeNode().setOnFinished(event -> {
+                rootPane.getRootPane().setCenter(null);
+                contentController = null;
+                setContent(controller, content);
             });
             return;
         }
@@ -189,7 +177,7 @@ public class MainManager extends Application {
     }
 
     public void openMap() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/center/MapAll.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/manager/center/MapAll.fxml")); // Load the map
         Node node = loader.load();
         setContent(loader.getController(), node);
         ((MapAllController) loader.getController()).setRoot(this);

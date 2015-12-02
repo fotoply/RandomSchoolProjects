@@ -48,6 +48,7 @@ public class HouseOverviewController implements OpenCloseAnimated {
 
     @FXML
     private void initialize() {
+        //Initialize the overview and set the cell factory values to display the correct information for each person
         AnimationHelper.initializeSlideFadeFromRight(node);
 
         nameColumn.setCellValueFactory(param -> param.getValue().nameProperty());
@@ -69,6 +70,7 @@ public class HouseOverviewController implements OpenCloseAnimated {
     }
 
     public void tableClicked(Tenant tenant) {
+        // When any part of the table is clicked, open information for that specific person.
         ((HouseOverviewLeftMenuController) root.getLeftMenu()).selectButton(null);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonInfo.fxml"));

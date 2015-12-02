@@ -22,7 +22,7 @@ public class MessageContainerController extends AnchorPane {
     @FXML
     private TextArea messageArea;
 
-    public void init(Message message) {
+    public void init(Message message) { // Display the data from the message by setting the correct labels.
         titleText.setText(message.getTitle());
         senderNameText.setText(message.getSender().getName());
         messageArea.setText(message.getMessage());

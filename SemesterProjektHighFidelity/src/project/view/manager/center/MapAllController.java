@@ -49,23 +49,23 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     public static LatLong geolocateHouse(String address) throws Exception // From https://stackoverflow.com/questions/18455394/java-function-that-accepts-address-and-returns-longitude-and-latitude-coordinate
     {
         int responseCode;
-        String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true";
+        String api = "http://maps.googleapis.com/maps/api/geocode/xml?address=" + URLEncoder.encode(address, "UTF-8") + "&sensor=true"; // First create a URL for the google API using the address.
         System.out.println("URL : " + api);
         URL url = new URL(api);
-        HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection();
+        HttpURLConnection httpConnection = (HttpURLConnection) url.openConnection(); // Create a new connection to the URL
         httpConnection.connect();
         responseCode = httpConnection.getResponseCode();
-        if (responseCode == 200) {
+        if (responseCode == 200) { // If the response code from the server is 200 (Content found) then parse the message
             DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = builder.parse(httpConnection.getInputStream());
-            XPathFactory xPathfactory = XPathFactory.newInstance();
+            XPathFactory xPathfactory = XPathFactory.newInstance(); // Parsing factory created
             XPath xpath = xPathfactory.newXPath();
             XPathExpression expr = xpath.compile("/GeocodeResponse/status");
-            String status = (String) expr.evaluate(document, XPathConstants.STRING);
+            String status = (String) expr.evaluate(document, XPathConstants.STRING); // FInd strings
             if (status.equals("OK")) {
-                expr = xpath.compile("//geometry/location/lat");
+                expr = xpath.compile("//geometry/location/lat"); // Find the xpath for the latitude and write it to a string
                 String latitude = (String) expr.evaluate(document, XPathConstants.STRING);
-                expr = xpath.compile("//geometry/location/lng");
+                expr = xpath.compile("//geometry/location/lng"); // Do the same for the longitude
                 String longitude = (String) expr.evaluate(document, XPathConstants.STRING);
                 return new LatLong(Double.parseDouble(latitude), Double.parseDouble(longitude));
             } else {
@@ -79,31 +79,26 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
         this.root = root;
     }
 
-    public void createMarkerFromHouse(GoogleMap map, House house) {
+    public void createMarkerFromHouse(GoogleMap map, House house) { // Given a house, create a marker for the map for it.
 
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.title(house.getAddress());
         markerOptions.animation(Animation.DROP);
         Marker tempMarker = new Marker(markerOptions);
-        try {
-            /*if (house.getPosition() != null) {
-                System.out.println(house.getPosition());
-                tempMarker.setPosition(house.getPosition());
-            } else {*/
+        try { // Geolocate the house based on the address
             house.setPosition(geolocateHouse(house.getAddress()));
             tempMarker.setPosition(house.getPosition());
             System.out.println(house.getPosition());
-            //}
         } catch (Exception e) {
             e.printStackTrace();
         }
         house.setMarker(tempMarker);
         markers.add(tempMarker);
-        map.addMarker(tempMarker);
-        map.addUIEventHandler(tempMarker, UIEventType.click, new UIEventHandler() {
+        map.addMarker(tempMarker); // Add it to the map
+        map.addUIEventHandler(tempMarker, UIEventType.click, new UIEventHandler() { // Add an event for when it is clicked by the user
             @Override
             public void handle(JSObject jsObject) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("HouseOverview.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("HouseOverview.fxml")); // The event forces the interface to open the overview for that house
                 try {
                     Node node = loader.load();
                     HouseOverviewController controller = loader.getController();
@@ -115,7 +110,7 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
                     e.printStackTrace();
                 }
 
-                loader = new FXMLLoader(getClass().getResource("/project/view/manager/HouseOverviewLeftMenu.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/project/view/manager/HouseOverviewLeftMenu.fxml")); // And to open the left menu for the house overview
                 try {
                     Node node = loader.load();
                     ((HouseOverviewLeftMenuController) loader.getController()).root = root;
@@ -133,18 +128,16 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     }
 
     @Override
-    public void mapInitialized() {
+    public void mapInitialized() { // After the map has been initialized and loaded.
         MapOptions mapOptions = new MapOptions();
         mapOptions.overviewMapControl(false).panControl(false).rotateControl(false).scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.ROADMAP);
         root.setMap(mapView.createMap(mapOptions));
 
-        //.center(new LatLong(56.1351841, 8.1906375)).zoom(7)
-
-        for (House house : root.getHouses()) {
+        for (House house : root.getHouses()) { // Place markers for each house in the list
             createMarkerFromHouse(root.getMap(), house);
         }
 
-        root.getMap().fitBounds(getBoundsForMarkers());
+        root.getMap().fitBounds(getBoundsForMarkers()); // Attempt to figure out the best way to display all the markers at once
         System.out.println(getBoundsForMarkers());
     }
 
@@ -162,7 +155,7 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
     }
 
     @Override
-    public Transition closeNode() {
+    public Transition closeNode() { // Clean up the map and stuff on it before closing the window.
         for (Marker marker : markers) {
             root.getMap().removeMarker(marker);
         }
@@ -182,18 +175,20 @@ public class MapAllController implements OpenCloseAnimated, MapComponentInitiali
 
         ArrayList<LatLong> positions = root.getHouses().stream().map(House::getPosition).collect(Collectors.toCollection(ArrayList::new));
 
-        for (int i = 0; i < positions.size(); i++) {
-            if (positions.get(i).getLatitude() < low) {
-                low = positions.get(i).getLatitude();
+        // Loop through all the positions and find two corners in each end, so that the position can be set.
+
+        for (LatLong position : positions) {
+            if (position.getLatitude() < low) {
+                low = position.getLatitude();
             }
-            if (positions.get(i).getLatitude() > high) {
-                high = positions.get(i).getLatitude();
+            if (position.getLatitude() > high) {
+                high = position.getLatitude();
             }
-            if (positions.get(i).getLongitude() < left) {
-                left = positions.get(i).getLongitude();
+            if (position.getLongitude() < left) {
+                left = position.getLongitude();
             }
-            if (positions.get(i).getLongitude() > right) {
-                right = positions.get(i).getLongitude();
+            if (position.getLongitude() > right) {
+                right = position.getLongitude();
             }
         }
 
