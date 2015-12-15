@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="71.0" y="93.5">project.model.House</node>
+    <node x="871.5" y="181.5">project.model.Person</node>
+    <node x="126.5" y="745.5">project.model.Janitor</node>
+    <node x="240.5" y="745.5">project.model.Manager</node>
+    <node x="627.5" y="450.5">project.model.Message</node>
+    <node x="219.0" y="-25.5">project.model.Tenant</node>
+    <node x="672.5" y="665.5">project.model.Notification</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="project.model.Tenant" target="project.model.House">
+      <point x="-61.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="240.0" />
+      <point x="-209.0" y="0.0" />
+    </edge>
+    <edge source="project.model.House" target="project.model.Person">
+      <point x="209.0" y="0.0" />
+      <point x="-88.5" y="0.0" />
+    </edge>
+    <edge source="project.model.Manager" target="project.model.Person">
+      <point x="39.5" y="0.0" />
+      <point x="1120.0" y="760.0" />
+      <point x="1120.0" y="240.0" />
+      <point x="88.5" y="0.0" />
+    </edge>
+    <edge source="project.model.House" target="project.model.Notification">
+      <point x="40.0" y="146.5" />
+      <point x="320.0" y="680.0" />
+      <point x="-47.5" y="0.0" />
+    </edge>
+    <edge source="project.model.House" target="project.model.Message">
+      <point x="80.0" y="146.5" />
+      <point x="360.0" y="520.0" />
+      <point x="-92.5" y="0.0" />
+    </edge>
+    <edge source="project.model.House" target="project.model.Tenant">
+      <point x="0.0" y="-146.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="project.model.Message" target="project.model.Person">
+      <point x="92.5" y="0.0" />
+      <point x="960.0" y="520.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="project.model.Manager" target="project.model.House">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="146.5" />
+    </edge>
+    <edge source="project.model.Tenant" target="project.model.Person">
+      <point x="61.0" y="0.0" />
+      <point x="960.0" y="0.0" />
+      <point x="0.0" y="-58.5" />
+    </edge>
+    <edge source="project.model.Notification" target="project.model.Message">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="project.model.Janitor" target="project.model.Manager">
+      <point x="33.5" y="0.0" />
+      <point x="-39.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4437450826121164" x="565.369680851064" y="305.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
